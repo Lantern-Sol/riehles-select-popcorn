@@ -1,0 +1,254 @@
+<section class="hero-banner"
+         data-section-id="{{ section.id }}">
+  <div class="hero-banner__container">
+
+    {%- comment -%} Background Image - Desktop {%- endcomment -%}
+    <div class="hero-banner__image hero-banner__image--desktop">
+      {% if section.settings.image != blank %}
+        {%
+          include 'framework--image',
+          image: section.settings.image,
+          full_width: true
+        %}
+      {% else %}
+        <div style="background:#333;width:100%;height:100%;position:absolute;top:0;left:0;"></div>
+      {% endif %}
+    </div>
+
+    {%- comment -%} Background Image - Mobile {%- endcomment -%}
+    <div class="hero-banner__image hero-banner__image--mobile">
+      {% if section.settings.image_mobile != blank %}
+        {%
+          include 'framework--image',
+          image: section.settings.image_mobile,
+          full_width: true
+        %}
+      {% elsif section.settings.image != blank %}
+        {%
+          include 'framework--image',
+          image: section.settings.image,
+          full_width: true
+        %}
+      {% else %}
+        <div style="background:#333;width:100%;height:100%;position:absolute;top:0;left:0;"></div>
+      {% endif %}
+    </div>
+
+    {%- comment -%} Gradient Overlay {%- endcomment -%}
+    <div class="hero-banner__gradient"></div>
+
+    {%- comment -%} Content {%- endcomment -%}
+    <div class="hero-banner__content">
+      <div class="hero-banner__content-inner">
+      <div class="hero-banner__text-block">
+
+      {%- comment -%} Star Rating Row {%- endcomment -%}
+      {% if section.settings.show_stars %}
+        <div class="hero-banner__stars-row">
+          <div class="hero-banner__stars">
+            {% for i in (1..5) %}
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path d="M8.35802 0.390236C8.58711 -0.130079 9.29302 -0.130079 9.52211 0.390236L11.6833 5.29865C11.7767 5.5107 11.9685 5.65671 12.1899 5.68421L17.3138 6.32065C17.857 6.38812 18.0751 7.09142 17.6736 7.48046L13.8853 11.1505C13.7216 11.309 13.6483 11.5453 13.6918 11.7743L14.6974 17.0761C14.804 17.6381 14.2329 18.0727 13.7556 17.7929L9.25315 15.1526C9.05863 15.0386 8.82151 15.0386 8.62698 15.1526L4.12451 17.7929C3.64723 18.0727 3.07614 17.6381 3.18274 17.0761L4.18834 11.7743C4.23179 11.5453 4.15851 11.309 3.99484 11.1505L0.206566 7.48046C-0.195009 7.09142 0.0231277 6.38812 0.566291 6.32065L5.69026 5.68421C5.91163 5.65671 6.10346 5.5107 6.19683 5.29865L8.35802 0.390236Z" fill="#FFA800"/>
+              </svg>
+            {% endfor %}
+          </div>
+          <span class="hero-banner__rating">{{ section.settings.star_text }}</span>
+          <span class="hero-banner__rating-tagline">{{ section.settings.star_tagline }}</span>
+        </div>
+      {% endif %}
+
+      {%- comment -%} Headline {%- endcomment -%}
+      {% if section.settings.heading_line_1 != blank or section.settings.heading_line_2 != blank %}
+        <div class="hero-banner__heading">
+          {% if section.settings.heading_line_1 != blank %}
+            <h1 class="hero-banner__heading-line">{{ section.settings.heading_line_1 | escape }}</h1>
+          {% endif %}
+          {% if section.settings.heading_line_2 != blank %}
+            <p class="hero-banner__heading-line hero-banner__heading-line--2">{{ section.settings.heading_line_2 | escape }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {%- comment -%} Subtitle {%- endcomment -%}
+      {% if section.settings.subtitle != blank %}
+        <p class="hero-banner__subtitle">{{ section.settings.subtitle | escape }}</p>
+      {% endif %}
+
+      </div>{%- comment -%} /.hero-banner__text-block {%- endcomment -%}
+
+      {%- comment -%} Feature Badges {%- endcomment -%}
+      {% if section.settings.badge_1 != blank or section.settings.badge_2 != blank or section.settings.badge_3 != blank %}
+        <div class="hero-banner__badges">
+          {% if section.settings.badge_1 != blank %}
+            <div class="hero-banner__badge">
+              <span class="hero-banner__badge-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                  <rect width="27" height="27" rx="13.5" fill="#FFD815" fill-opacity="0.5"/>
+                  <path d="M16.3124 13.5001C16.3163 13.1302 16.2452 12.7634 16.1036 12.4217C15.962 12.0799 15.7527 11.7704 15.4883 11.5117C14.9597 10.9862 14.2453 10.6901 13.4999 10.6876M11.5115 11.5117C11.2428 11.7711 11.0286 12.0815 10.8812 12.4246C10.7338 12.7677 10.6562 13.1368 10.6529 13.5102C10.6497 13.8837 10.7209 14.254 10.8623 14.5997C11.0037 14.9453 11.2125 15.2593 11.4766 15.5234C11.7407 15.7875 12.0547 15.9963 12.4003 16.1377C12.746 16.2792 13.1163 16.3503 13.4898 16.3471C13.8632 16.3438 14.2323 16.2662 14.5754 16.1188C14.9185 15.9714 15.2289 15.7572 15.4883 15.4886" stroke="white" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M11.5116 19.466C11.7727 19.2048 11.9799 18.8948 12.1213 18.5536C12.2626 18.2123 12.3353 17.8466 12.3353 17.4772C12.3353 17.1079 12.2626 16.7421 12.1213 16.4009C11.9799 16.0597 11.7727 15.7496 11.5116 15.4884C11.2504 15.2273 10.9403 15.0201 10.5991 14.8787C10.2579 14.7374 9.89213 14.6647 9.52277 14.6647C9.15342 14.6647 8.78769 14.7374 8.44645 14.8787C8.10521 15.0201 7.79516 15.2273 7.53398 15.4884M15.4884 7.53398C15.2273 7.79516 15.0201 8.10521 14.8787 8.44645C14.7374 8.78769 14.6647 9.15342 14.6647 9.52277C14.6647 9.89213 14.7374 10.2579 14.8787 10.5991C15.0201 10.9403 15.2273 11.2504 15.4884 11.5116C15.7496 11.7727 16.0597 11.9799 16.4009 12.1213C16.7421 12.2626 17.1079 12.3353 17.4772 12.3353C17.8466 12.3353 18.2123 12.2626 18.5536 12.1213C18.8948 11.9799 19.2048 11.7727 19.466 11.5116M7.17188 7.17188L19.8281 19.8281" stroke="white" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+              </span>
+              <span class="hero-banner__badge-text">{{ section.settings.badge_1 | escape }}</span>
+            </div>
+          {% endif %}
+          {% if section.settings.badge_2 != blank %}
+            <div class="hero-banner__badge-divider"></div>
+            <div class="hero-banner__badge">
+              <span class="hero-banner__badge-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                  <rect width="27" height="27" rx="13.5" fill="#FFD815" fill-opacity="0.5"/>
+                  <g clip-path="url(#clip0_2_188)">
+                  <path d="M18.2215 14.334C17.9227 13.4003 17.2856 12.5207 16.3125 11.7423C14.9062 10.6173 13.8516 8.92981 13.5 7.172C13.3714 7.80217 13.1625 8.41324 12.8784 8.99028M6.46875 6.46887L20.5312 20.5314M11.2465 11.248C11.0682 11.4217 10.8817 11.5866 10.6875 11.7423C9.28125 12.8673 8.57812 14.2032 8.57812 15.6095C8.57801 16.7131 8.9488 17.7847 9.63095 18.6522C10.3131 19.5198 11.267 20.1329 12.3395 20.3931C13.412 20.6533 14.5408 20.5455 15.5447 20.0871C16.5485 19.6286 17.3692 18.8461 17.8748 17.8651" stroke="white" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_2_188">
+                  <rect width="16.875" height="16.875" fill="white" transform="translate(5.0625 5.0625)"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+              </span>
+              <span class="hero-banner__badge-text">{{ section.settings.badge_2 | escape }}</span>
+            </div>
+          {% endif %}
+          {% if section.settings.badge_3 != blank %}
+            <div class="hero-banner__badge-divider"></div>
+            <div class="hero-banner__badge">
+              <span class="hero-banner__badge-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                  <rect width="27" height="27" rx="13.5" fill="#FFD815" fill-opacity="0.5"/>
+                  <g clip-path="url(#clip0_2_194)">
+                  <path d="M12.7545 6.64449C12.9523 6.44677 13.2205 6.33569 13.5002 6.33569C13.7798 6.33569 14.0481 6.44677 14.2458 6.64449L16.6642 9.06289V7.69918C16.6642 7.55932 16.7198 7.42519 16.8187 7.32629C16.9176 7.22739 17.0517 7.17184 17.1916 7.17184H18.2463C18.3861 7.17184 18.5203 7.22739 18.6192 7.32629C18.7181 7.42519 18.7736 7.55932 18.7736 7.69918V11.1723L21.2563 13.6539C21.3054 13.703 21.3443 13.7612 21.3708 13.8252C21.3973 13.8893 21.411 13.958 21.411 14.0273C21.411 14.0966 21.3973 14.1653 21.3708 14.2294C21.3443 14.2934 21.3054 14.3516 21.2563 14.4007C21.2073 14.4497 21.1491 14.4886 21.0851 14.5151C21.021 14.5417 20.9523 14.5553 20.883 14.5553C20.8137 14.5553 20.745 14.5417 20.6809 14.5151C20.6169 14.4886 20.5587 14.4497 20.5096 14.4007L13.5002 7.39016L8.22674 12.6636V19.3007C8.22674 19.4406 8.2823 19.5747 8.3812 19.6736C8.48009 19.7725 8.61422 19.8281 8.75408 19.8281H12.9728C13.1127 19.8281 13.2468 19.8836 13.3457 19.9825C13.4446 20.0814 13.5002 20.2156 13.5002 20.3554C13.5002 20.4953 13.4446 20.6294 13.3457 20.7283C13.2468 20.8272 13.1127 20.8828 12.9728 20.8828H8.75408C8.3345 20.8828 7.93211 20.7161 7.63542 20.4194C7.33873 20.1227 7.17205 19.7203 7.17205 19.3007V13.7183L6.49072 14.4007C6.44169 14.4497 6.38349 14.4886 6.31943 14.5151C6.25536 14.5417 6.1867 14.5553 6.11737 14.5553C6.04803 14.5553 5.97937 14.5417 5.9153 14.5151C5.85124 14.4886 5.79304 14.4497 5.74401 14.4007C5.69498 14.3516 5.65608 14.2934 5.62955 14.2294C5.60301 14.1653 5.58936 14.0966 5.58936 14.0273C5.58936 13.958 5.60301 13.8893 5.62955 13.8252C5.65608 13.7612 5.69498 13.703 5.74401 13.6539L12.7545 6.64449Z" fill="white"/>
+                  <path d="M18.2461 21.9373C19.2251 21.9373 20.164 21.5483 20.8563 20.8561C21.5486 20.1638 21.9375 19.2249 21.9375 18.2458C21.9375 17.2668 21.5486 16.3279 20.8563 15.6356C20.164 14.9434 19.2251 14.5544 18.2461 14.5544C17.2671 14.5544 16.3281 14.9434 15.6359 15.6356C14.9436 16.3279 14.5547 17.2668 14.5547 18.2458C14.5547 19.2249 14.9436 20.1638 15.6359 20.8561C16.3281 21.5483 17.2671 21.9373 18.2461 21.9373ZM20.0169 17.1985L18.6089 19.5463C18.547 19.6494 18.4625 19.7371 18.3616 19.8026C18.2607 19.8682 18.1463 19.9099 18.0269 19.9245C17.9075 19.9391 17.7863 19.9264 17.6726 19.8871C17.5589 19.8479 17.4557 19.7833 17.3707 19.6982L16.5544 18.8829C16.4555 18.7839 16.4 18.6496 16.4001 18.5097C16.4002 18.3697 16.4559 18.2356 16.5549 18.1367C16.6539 18.0378 16.7882 17.9823 16.9281 17.9824C17.068 17.9825 17.2022 18.0382 17.3011 18.1372L17.878 18.7141L19.112 16.6564C19.1476 16.597 19.1945 16.5452 19.2502 16.5039C19.3058 16.4626 19.369 16.4327 19.4362 16.4159C19.5034 16.399 19.5732 16.3956 19.6417 16.4057C19.7102 16.4159 19.7761 16.4394 19.8355 16.475C19.8949 16.5106 19.9468 16.5576 19.988 16.6132C20.0293 16.6688 20.0592 16.732 20.0761 16.7992C20.0929 16.8664 20.0963 16.9362 20.0862 17.0048C20.0761 17.0733 20.0525 17.1391 20.0169 17.1985Z" fill="white"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_2_194">
+                  <rect width="16.875" height="16.875" fill="white" transform="translate(5.0625 5.0625)"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+              </span>
+              <span class="hero-banner__badge-text">{{ section.settings.badge_3 | escape }}</span>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      </div>{%- comment -%} /.hero-banner__content-inner {%- endcomment -%}
+
+      {%- comment -%} CTA Button {%- endcomment -%}
+      {% if section.settings.button_text != blank %}
+        <a href="{{ section.settings.button_url }}" class="hero-banner__cta">
+          {{ section.settings.button_text | escape }}
+        </a>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "class": "section--slideshow",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image (desktop)",
+      "info": "2000 x 800px recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Background image (mobile)",
+      "info": "900 x 900px recommended. Falls back to desktop image if empty."
+    },
+    {
+      "type": "header",
+      "content": "Star rating"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stars",
+      "label": "Show star rating",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "star_text",
+      "label": "Rating text",
+      "default": "4/5 Stars"
+    },
+    {
+      "type": "text",
+      "id": "star_tagline",
+      "label": "Rating tagline",
+      "default": "Loved by popcorn enthusiasts for its tender, hulless crunch"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading line 1",
+      "default": "HEALTHY SNACKING"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Heading line 2",
+      "default": "DONE IN GOOD TASTE"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Non-GMO, small-batch kernels grown on our family farm and delivered straight to your home."
+    },
+    {
+      "type": "header",
+      "content": "Feature badges"
+    },
+    {
+      "type": "text",
+      "id": "badge_1",
+      "label": "Badge 1",
+      "default": "Non GMO"
+    },
+    {
+      "type": "text",
+      "id": "badge_2",
+      "label": "Badge 2",
+      "default": "No Preservatives"
+    },
+    {
+      "type": "text",
+      "id": "badge_3",
+      "label": "Badge 3",
+      "default": "From Our Family"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Shop Popcorn"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button link"
+    }
+  ],
+  "presets": [{
+    "name": "Hero Banner",
+    "category": "Image"
+  }]
+}
+{% endschema %}
