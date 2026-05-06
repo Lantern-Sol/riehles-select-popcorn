@@ -91,118 +91,17 @@
 
     <div class="product-page--main-content">
 
-      <div class="product-page--title-n-vendor">
-        <h1 class="product-page--title font--section-heading" itemprop="name">{{ product.title }}</h1>
-        {% if settings.brand-show %}
-          <div itemprop="brand"><a class="font--light-accent" href="{{ product.vendor | url_for_vendor }}">{{ product.vendor }}</a></div>
-        {% endif %}
-      </div>
-
-      <div class="product-page--cart-form-block">
-
-        <div class="font--accent">
-          <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-            <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
-
-            {% if product.available %}
-              <link itemprop="availability" href="http://schema.org/InStock" />
-            {% else %}
-              <link itemprop="availability" href="http://schema.org/OutOfStock" />
-            {% endif %}
-
-            {% assign price_meta = product.selected_or_first_available_variant.price | divided_by: 100.00 %}
-            <meta itemprop="price" content="{{ price_meta }}">
-
-            <p class="price--container">
-              {% assign variant = product.selected_or_first_available_variant %}
-              <span class="actual-price font--accent money">{{ variant.price | money }}</span>&nbsp;<span class="compare-price">{% if variant.price < variant.compare_at_price %}<span class="money font--light-accent">{{ variant.compare_at_price | money }}</span>{% endif %}</span>
-            </p>
-          </div>
-        </div>
-
-        {% comment %}<form class="cart-form" action="/cart/add" method="post" enctype="multipart/form-data">{% endcomment %}
-        <div class="product-page--cart-form">
-          {% form 'product', product %}
-
-           {% comment %}
-           <!-- Adding line items - https://docs.shopify.com/manual/configuration/store-customization/page-specific/product-page/get-customization-information-for-products -->
-           <div>
-              <label for="line-item-1">Line Item 1</label>
-              <input type="text" id="line-item-1" name="properties[line-item-1]">
-            </div>
-
-            <div>
-              <label for="line-item-2">Line Item 2</label>
-              <input type="text" id="line-item-2" name="properties[line-item-2]">
-            </div>
-            {% endcomment %}
-
-            <div class="font--accent variants {% unless product.variants.size > 1 %}hidden{% endunless %}">
-              <select id="variant-listbox" name="id" class="medium">
-                {% for variant in product.variants %}
-                  <option
-                    data-sku="{{ variant.sku }}"
-                    {% if variant.inventory_quantity <= 0 and variant.available == false %}DISABLED {% endif %}
-                    {% if variant == product.selected_or_first_available_variant %}selected="selected" {% endif %} value="{{ variant.id }}"
-                    {% if section.settings.low-in-stock-amount > 0 and
-                      variant.inventory_management == "shopify" and
-                      variant.inventory_policy == "deny"
-                    %}
-                      data-inventory-quantity="{{ variant.inventory_quantity }}"
-                    {% endif %}
-                  >
-                    {{ variant.title }} - {{ variant.price | money }}
-                  </option>
-                {% endfor %}
-              </select>
-            </div>
-            {% include 'snippet-product-low-in-stock' %}
-            <div
-              class="quanity-cart-row clearfix"
-              data-smart-payment-button="{{ section.settings.smart_payment_button }}"
-            >
-              {% include 'snippet-quantity' %}
-
-              <div class="add-to-cart">
-                {% assign cart_button_class = 'font--button' %}
-                {% if section.settings.smart_payment_button %}
-                  {% assign cart_button_class = 'font--secondary-button' %}
-                {% endif %}
-                <button class="add {{ cart_button_class }}" type="submit" name="add" id="add">
-                  <span class="text">{{ 'products.add_to_cart' | t }}</span>
-                  <span class="fw--loading_animation tiny" data-js-class="FrameworkLoadingAnimation"></span>
-                </button>
-              </div>
-            </div>
-
-            {% if section.settings.smart_payment_button %}
-              <div class="font--button product-page--smart-payment-buttons">
-                {{ form | payment_button }}
-              </div>
-            {% endif %}
-          {% endform %}
-        </div>
-
-        {% include 'snippet-product-unavailable' %}
-
-        {% if product.images.size > 1 %}
-          <div class="product-page--thumbs" data-position="cart-form-column">
-            <div class="product-page--thumbs-container">
-              {{ thumbnail_images }}
-            </div>
-          </div>
-        {% endif %}
-      </div>
-
-      <div class="product-page--description font--paragraph">
-        <div itemprop="description" class="rte-content">
-          {{ product.description }}
-        </div>
-      </div>
-
       {% if product.images.size > 0 %}
         <div class="product-page--images">
           <div class="product-page--images-container">
+            {% if product.images.size > 1 %}
+              <button type="button" class="product-page--arrow product-page--arrow-prev" aria-label="Previous image">
+                {% include 'snippet-symbol' with 'arrow-left' %}
+              </button>
+              <button type="button" class="product-page--arrow product-page--arrow-next" aria-label="Next image">
+                {% include 'snippet-symbol' with 'arrow-right' %}
+              </button>
+            {% endif %}
             <div class="modal--root" data-js-class="FrameworkModal">
 
               {% for image in product.images %}
@@ -271,6 +170,112 @@
         </div>
       {% endif %}
 
+      <div class="product-page--details">
+
+        <div class="product-page--title-n-vendor">
+          <h1 class="product-page--title font--section-heading" itemprop="name">{{ product.title }}</h1>
+          {% if settings.brand-show %}
+            <div itemprop="brand"><a class="font--light-accent" href="{{ product.vendor | url_for_vendor }}">{{ product.vendor }}</a></div>
+          {% endif %}
+        </div>
+
+        <div class="product-page--description font--paragraph">
+          <div itemprop="description" class="rte-content">
+            {{ product.description }}
+          </div>
+        </div>
+
+        <div class="product-page--cart-form-block">
+
+          <div class="font--accent">
+            <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+              <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+
+              {% if product.available %}
+                <link itemprop="availability" href="http://schema.org/InStock" />
+              {% else %}
+                <link itemprop="availability" href="http://schema.org/OutOfStock" />
+              {% endif %}
+
+              {% assign price_meta = product.selected_or_first_available_variant.price | divided_by: 100.00 %}
+              <meta itemprop="price" content="{{ price_meta }}">
+
+              <p class="price--container">
+                {% assign variant = product.selected_or_first_available_variant %}
+                <span class="actual-price font--accent money">{{ variant.price | money }}</span>&nbsp;<span class="compare-price">{% if variant.price < variant.compare_at_price %}<span class="money font--light-accent">{{ variant.compare_at_price | money }}</span>{% endif %}</span>
+              </p>
+            </div>
+          </div>
+
+          {% comment %}<form class="cart-form" action="/cart/add" method="post" enctype="multipart/form-data">{% endcomment %}
+          <div class="product-page--cart-form">
+            {% form 'product', product %}
+
+             {% comment %}
+             <!-- Adding line items - https://docs.shopify.com/manual/configuration/store-customization/page-specific/product-page/get-customization-information-for-products -->
+             <div>
+                <label for="line-item-1">Line Item 1</label>
+                <input type="text" id="line-item-1" name="properties[line-item-1]">
+              </div>
+
+              <div>
+                <label for="line-item-2">Line Item 2</label>
+                <input type="text" id="line-item-2" name="properties[line-item-2]">
+              </div>
+              {% endcomment %}
+
+              <div class="font--accent variants {% unless product.variants.size > 1 %}hidden{% endunless %}">
+                <select id="variant-listbox" name="id" class="medium">
+                  {% for variant in product.variants %}
+                    <option
+                      data-sku="{{ variant.sku }}"
+                      {% if variant.inventory_quantity <= 0 and variant.available == false %}DISABLED {% endif %}
+                      {% if variant == product.selected_or_first_available_variant %}selected="selected" {% endif %} value="{{ variant.id }}"
+                      {% if section.settings.low-in-stock-amount > 0 and
+                        variant.inventory_management == "shopify" and
+                        variant.inventory_policy == "deny"
+                      %}
+                        data-inventory-quantity="{{ variant.inventory_quantity }}"
+                      {% endif %}
+                    >
+                      {{ variant.title }} - {{ variant.price | money }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </div>
+              {% include 'snippet-product-low-in-stock' %}
+              <div
+                class="quanity-cart-row"
+                data-smart-payment-button="{{ section.settings.smart_payment_button }}"
+              >
+                {% include 'snippet-quantity' %}
+
+                <div class="add-to-cart">
+                  {% assign cart_button_class = 'font--button' %}
+                  {% if section.settings.smart_payment_button %}
+                    {% assign cart_button_class = 'font--secondary-button' %}
+                  {% endif %}
+                  <button class="add {{ cart_button_class }}" type="submit" name="add" id="add">
+                    <span class="text">{{ 'products.add_to_cart' | t }}</span>
+                    <span class="fw--loading_animation tiny" data-js-class="FrameworkLoadingAnimation"></span>
+                  </button>
+                </div>
+              </div>
+
+              {% if section.settings.smart_payment_button %}
+                <div class="font--button product-page--smart-payment-buttons">
+                  {{ form | payment_button }}
+                </div>
+              {% endif %}
+            {% endform %}
+          </div>
+
+          {% include 'snippet-product-unavailable' %}
+
+        </div>
+
+      </div>
+
     </div>
   </article>
 
@@ -319,6 +324,97 @@
     }
 
     setOptionSelectors();
+  });
+</script>
+
+{% if product.images.size > 1 %}
+<script>
+  jQuery(function($) {
+    var $root = $('.product-page--root');
+    var $images = $root.find('.product-page--image');
+    var $thumbs = $root.find('.product-page--thumb');
+    var $zoomImages = $root.find('.product-page--zoom-image');
+
+    function switchImage(direction) {
+      var $active = $images.filter('[data-active="true"]');
+      var currentIndex = $images.index($active);
+      var nextIndex;
+
+      if (direction === 'next') {
+        nextIndex = (currentIndex + 1) % $images.length;
+      } else {
+        nextIndex = (currentIndex - 1 + $images.length) % $images.length;
+      }
+
+      var nextId = $images.eq(nextIndex).attr('data-id');
+
+      // Hide all zoom images immediately
+      $zoomImages.css('display', 'none');
+
+      $images.attr('data-active', 'false');
+      $images.eq(nextIndex).attr('data-active', 'true');
+
+      $zoomImages.attr('data-active', 'false');
+      $zoomImages.filter('[data-id="' + nextId + '"]').attr('data-active', 'true');
+
+      $thumbs.attr('data-active', 'false');
+      $thumbs.filter('[data-id="' + nextId + '"]').attr('data-active', 'true');
+
+      // Re-initialize zoom for the new active image
+      if (theme.partials.ProductPage && theme.partials.ProductPage.imageZoom) {
+        theme.partials.ProductPage.imageZoom();
+      }
+    }
+
+    $root.on('click', '.product-page--arrow-prev', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      switchImage('prev');
+    });
+
+    $root.on('click', '.product-page--arrow-next', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      switchImage('next');
+    });
+  });
+</script>
+{% endif %}
+
+<div class="product-lightbox" id="product-lightbox">
+  <div class="product-lightbox--overlay"></div>
+  <div class="product-lightbox--content">
+    <button type="button" class="product-lightbox--close" aria-label="Close">&times;</button>
+    <img src="" alt="" />
+  </div>
+</div>
+
+<script>
+  jQuery(function($) {
+    var $lightbox = $('#product-lightbox');
+    var $img = $lightbox.find('img');
+    var imageExts = /\.(jpg|jpeg|png|gif|webp)(\?|$)/i;
+
+    $('.product-page--description .rte-content').on('click', 'a', function(e) {
+      var href = $(this).attr('href');
+      if (href && imageExts.test(href)) {
+        e.preventDefault();
+        $img.attr('src', href);
+        $lightbox.addClass('active');
+      }
+    });
+
+    $lightbox.on('click', '.product-lightbox--overlay, .product-lightbox--close', function() {
+      $lightbox.removeClass('active');
+      $img.attr('src', '');
+    });
+
+    $(document).on('keydown', function(e) {
+      if (e.key === 'Escape' && $lightbox.hasClass('active')) {
+        $lightbox.removeClass('active');
+        $img.attr('src', '');
+      }
+    });
   });
 </script>
 
