@@ -2,33 +2,78 @@
          data-section-id="{{ section.id }}">
   <div class="hero-banner__container">
 
-    {%- comment -%} Background Image - Desktop {%- endcomment -%}
+    {%- comment -%} Background Image - Desktop (eager load for LCP) {%- endcomment -%}
     <div class="hero-banner__image hero-banner__image--desktop">
       {% if section.settings.image != blank %}
-        {%
-          include 'framework--image',
-          image: section.settings.image,
-          full_width: true
-        %}
+        {% assign hero_img = section.settings.image %}
+        <div class="image--root" style="width: 100%;">
+          <div class="image--container" style="padding-top:{{ 1 | divided_by: hero_img.aspect_ratio | times: 100 }}%;">
+            <img
+              srcset="
+                {{ hero_img | img_url: '800x' }} 800w,
+                {{ hero_img | img_url: '1200x' }} 1200w,
+                {{ hero_img | img_url: '1800x' }} 1800w,
+                {{ hero_img | img_url: '2400x' }} 2400w
+              "
+              src="{{ hero_img | img_url: '1800x' }}"
+              sizes="100vw"
+              alt="{{ hero_img.alt | escape }}"
+              fetchpriority="high"
+              decoding="async"
+              width="{{ hero_img.width }}"
+              height="{{ hero_img.height }}"
+            >
+          </div>
+        </div>
       {% else %}
         <div style="background:#333;width:100%;height:100%;position:absolute;top:0;left:0;"></div>
       {% endif %}
     </div>
 
-    {%- comment -%} Background Image - Mobile {%- endcomment -%}
+    {%- comment -%} Background Image - Mobile (eager load for LCP) {%- endcomment -%}
     <div class="hero-banner__image hero-banner__image--mobile">
       {% if section.settings.image_mobile != blank %}
-        {%
-          include 'framework--image',
-          image: section.settings.image_mobile,
-          full_width: true
-        %}
+        {% assign hero_mob = section.settings.image_mobile %}
+        <div class="image--root" style="width: 100%;">
+          <div class="image--container" style="padding-top:{{ 1 | divided_by: hero_mob.aspect_ratio | times: 100 }}%;">
+            <img
+              srcset="
+                {{ hero_mob | img_url: '400x' }} 400w,
+                {{ hero_mob | img_url: '600x' }} 600w,
+                {{ hero_mob | img_url: '800x' }} 800w,
+                {{ hero_mob | img_url: '1200x' }} 1200w
+              "
+              src="{{ hero_mob | img_url: '800x' }}"
+              sizes="100vw"
+              alt="{{ hero_mob.alt | escape }}"
+              fetchpriority="high"
+              decoding="async"
+              width="{{ hero_mob.width }}"
+              height="{{ hero_mob.height }}"
+            >
+          </div>
+        </div>
       {% elsif section.settings.image != blank %}
-        {%
-          include 'framework--image',
-          image: section.settings.image,
-          full_width: true
-        %}
+        {% assign hero_img = section.settings.image %}
+        <div class="image--root" style="width: 100%;">
+          <div class="image--container" style="padding-top:{{ 1 | divided_by: hero_img.aspect_ratio | times: 100 }}%;">
+            <img
+              srcset="
+                {{ hero_img | img_url: '400x' }} 400w,
+                {{ hero_img | img_url: '600x' }} 600w,
+                {{ hero_img | img_url: '800x' }} 800w,
+                {{ hero_img | img_url: '1200x' }} 1200w
+              "
+              src="{{ hero_img | img_url: '800x' }}"
+              sizes="100vw"
+              alt="{{ hero_img.alt | escape }}"
+              fetchpriority="high"
+              decoding="async"
+              width="{{ hero_img.width }}"
+              height="{{ hero_img.height }}"
+            >
+          </div>
+        </div>
       {% else %}
         <div style="background:#333;width:100%;height:100%;position:absolute;top:0;left:0;"></div>
       {% endif %}
