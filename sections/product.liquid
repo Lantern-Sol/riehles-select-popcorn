@@ -60,29 +60,6 @@
         {% endif %}
       </div>
     </div>
-    <div class="previous-next row">
-      {% if collection %}
-        {% if collection.previous_product or collection.next_product %}
-          <div class="font--accent columns large-3 small-6">
-            {% if collection.previous_product %}
-              <a class="left" title="{{ collection.previous_product.title }}" href="{{ collection.previous_product.url }}">
-                {% include 'snippet-symbol' with 'arrow-left' %} {{ 'products.previous_item' | t }}
-              </a>
-            {% endif %}
-            <div class="border-decoration show--large"></div>
-          </div>
-
-          <div class="font--accent columns large-3 large-offset-6 small-6">
-            {% if collection.next_product %}
-              <a class="right" href="{{ collection.next_product.url }}" title="{{ collection.next_product.title }}">{{ 'products.next_item' | t }}
-                {% include 'snippet-symbol' with 'arrow-right' %}
-              </a>
-            {% endif %}
-            <div class="border-decoration show--large"></div>
-          </div>
-        {% endif %}
-      {% endif %}
-    </div>
   </header>
 
   <article class="row" itemscope itemtype="http://schema.org/Product">
