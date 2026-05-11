@@ -1,4 +1,20 @@
 <div class="quantity font--accent">
-  <label for="quantity">{{ 'products.quantity' | t }}</label>
+  <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity">−</button>
   <input id="quantity" type="number" name="quantity" min="1" value="1" />
+  <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
 </div>
+
+<script>
+  jQuery(function($) {
+    $('.qty-minus').on('click', function() {
+      var input = $(this).siblings('input[name="quantity"]');
+      var val = parseInt(input.val()) || 1;
+      if (val > 1) input.val(val - 1).trigger('change');
+    });
+    $('.qty-plus').on('click', function() {
+      var input = $(this).siblings('input[name="quantity"]');
+      var val = parseInt(input.val()) || 1;
+      input.val(val + 1).trigger('change');
+    });
+  });
+</script>
