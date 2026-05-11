@@ -1,1756 +1,1765 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "current": {
-        "color--accent": "#267191",
-        "color-text": "#272727",
-        "color--alternative": "#ffffff",
-        "color-page-bg": "#ffffff",
-        "color-panel-bg": "#f7f7f7",
-        "color-border": "#ebebeb",
-        "color-error": "#f66767",
-        "color-button": "#ffffff",
-        "color-button-bg": "#267191",
-        "color-header-bg": "#ffffff",
-        "color-header": "#272727",
-        "color-header-cart": "#272727",
-        "color-footer-bg": "#267191",
-        "color-footer": "#ffffff",
-        "color-slider-caption": "#272727",
-        "color-slider-caption-bg": "#ffffff",
-        "color-slider-button": "#f7f7f7",
-        "color-slider-button-bg": "#272727",
-        "color-slider-button-hover-bg": "#474747",
-        "color-slider-nav": "#272727",
-        "color-grid-sale": "#ffffff",
-        "color-grid-sale-bg": "#272727",
-        "color-grid-sold-out": "#ffffff",
-        "color-grid-sold-out-bg": "#cccccc",
-        "color-tabs-accordions": "#ebebeb",
-        "typography--heading": "roboto_n7",
-        "typography--heading--uppercase": true,
-        "typography--heading--size": "large",
-        "typography--accent": "karla_n4",
-        "typography--paragraph": "roboto_n4",
-        "typography--paragraph--size": "medium",
-        "hover-image-enabled": true,
-        "brand-show": false,
-        "search--show-in-header": true,
-        "search--show-articles": true,
-        "search--show-pages": true,
-        "footer-facebook-follow-url": "https:\/\/www.facebook.com\/riehles.select.gourmet.popping.corn\/",
-        "footer-twitter-follow-url": "",
-        "footer-instagram-follow-url": "https:\/\/www.instagram.com\/riehleselectpopcorn\/",
-        "footer-vimeo-follow-url": "",
-        "footer-pinterest-follow-url": "",
-        "footer-youtube-follow-url": "",
-        "footer-tumblr-follow-url": "",
-        "popup--enabled": false,
-        "popup--test-mode": false,
-        "popup--image": "",
-        "popup--image-url": "",
-        "popup--page-content": "",
-        "popup--newsletter--enabled": true,
-        "popup--newsletter--heading": "Sign up to our mailing list",
-        "popup--social-icons--enabled": true,
-        "popup--seconds-range": 3,
-        "popup--days-range": 7,
-        "show_multiple_currencies": false,
-        "currency_format": "money_format",
-        "supported_currencies": "INR GBP CAD USD AUD EUR JPY",
-        "default_currency": "USD",
-        "favicon": "",
-        "cart--type": "drawer",
-        "cart--show-note": true,
-        "checkout_header_image": "",
-        "checkout_logo_image": "",
-        "checkout_logo_position": "left",
-        "checkout_logo_size": "medium",
-        "checkout_body_background_image": "",
-        "checkout_body_background_color": "#fff",
-        "checkout_input_background_color_mode": "white",
-        "checkout_sidebar_background_image": "",
-        "checkout_sidebar_background_color": "#fafafa",
-        "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
-        "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
-        "checkout_accent_color": "#197bbd",
-        "checkout_button_color": "#197bbd",
-        "checkout_error_color": "#e32c2b",
-        "color-text-alt": "#999999",
-        "color-button-bg-hover": "#777777",
-        "color-twitter-tone": "light",
-        "color-product-slider-bg": "#ffffff",
-        "color-featured-promo-bg": "#f7f7f7",
-        "color-social-feed-bg": "#ffffff",
-        "color-product-cart-button": "#f7f7f7",
-        "color-product-cart-button-bg": "#272727",
-        "color-product-cart-button-bg-hover": "#474747",
-        "sections": {
-            "header": {
-                "type": "header",
-                "settings": {
-                    "transparent-menu": false,
-                    "menu": "main-menu",
-                    "header-account-show": false,
-                    "header-menu-center": true,
-                    "header-logo-center": true,
-                    "logo": "shopify:\/\/shop_images\/logoSelectPopcorn.png",
-                    "logo-height": 100,
-                    "announcement--background-color": "accent",
-                    "announcement--alternative-color": true,
-                    "header--promo-bar--show-on": "all",
-                    "header--promo-bar--text": "Kettle Microwave Popcorn Sale!  $39\/case $3.50\/box",
-                    "header--promo-bar--link": "shopify:\/\/collections\/microwave"
-                }
-            },
-            "footer": {
-                "type": "footer",
-                "blocks": {
-                    "footer--about": {
-                        "type": "about",
-                        "settings": {
-                            "about-title": "THANKS FOR VISITING",
-                            "text": "<p>© COPYRIGHT 2026 Riehle's Select Popcorn<\/p><p><\/p>",
-                            "footer-payment-options-show": false
-                        }
-                    },
-                    "footer--menu": {
-                        "type": "menu",
-                        "settings": {
-                            "menu-title": "Info",
-                            "menu": "footer"
-                        }
-                    },
-                    "footer--subscribe": {
-                        "type": "subscribe",
-                        "settings": {
-                            "newsletter--heading": "<p>Sign up to our mailing list<\/p>",
-                            "subscribe--show-newsletter": true,
-                            "subscribe--show-social-icons": true
-                        }
-                    }
-                },
-                "block_order": [
-                    "footer--about",
-                    "footer--menu",
-                    "footer--subscribe"
-                ],
-                "settings": {}
-            },
-            "product": {
-                "type": "product",
-                "settings": {
-                    "product-breadcrumbs-show": true,
-                    "smart_payment_button": false,
-                    "product-unavailable-form-show": true,
-                    "product-modal-enabled": true,
-                    "product-zoom-enabled": true,
-                    "low-in-stock-amount": 0,
-                    "cart-form-position": "left",
-                    "product-size-chart-enabled": false,
-                    "product-size-chart-option": "size",
-                    "product-size-chart-page-content": "",
-                    "product-share-this-show": false,
-                    "product-share-twitter": true,
-                    "product-share-facebook": true,
-                    "product-share-pinterest": true,
-                    "product-share-tumblr": true
-                }
-            },
-            "collection": {
-                "type": "collection",
-                "settings": {
-                    "collections-breadcrumbs-show": true,
-                    "collections-tags-show": true,
-                    "show-title": false,
-                    "collections-products-per-row": "4",
-                    "mobile-items-per-row": "2"
-                }
-            },
-            "1519177108222": {
-                "type": "framework--featured-content",
-                "settings": {
-                    "full-width": true,
-                    "background-color": "dark",
-                    "text-position": "right",
-                    "text-width": "small",
-                    "overlap": false,
-                    "transparent-overlap": false,
-                    "alternative-color": true,
-                    "image": "shopify:\/\/shop_images\/Riehle_s_labor_day_specials.005.jpeg",
-                    "title": "Indiana Grown Gourmet Popcorn",
-                    "description": "<p>Riehle’s Select Gourmet Popcorn is a family owned, family run popcorn company rooted in the rich farmland of southeastern Indiana. We plant, harvest, clean, and pack our kernels on our farm in the Midwest, then ship them fresh to your door across the United States. Our lineup features tender hulless options, classic white and yellow gourmet popcorn, and specialty kernels prized for big, fluffy flakes and dependable popping performance.<br\/><br\/>Whether you use a stovetop popper, air popper, or electric popcorn machine, you can count on light, crisp texture and full flavor in every bowl. Shop by popcorn type and kernel size, add popping oils and seasonings, or stock up with bulk and wholesale cases for events, fundraisers, offices, and concession stands. Farm fresh quality, friendly service, and consistent results make Riehle’s a favorite for movie night and everyday snacking.<\/p>",
-                    "link-url": "shopify:\/\/pages\/about-us",
-                    "link-text": "Learn More About Us"
-                }
-            },
-            "1519177136360": {
-                "type": "framework--featured-grid",
-                "blocks": {
-                    "1519177136360-0": {
-                        "type": "image",
-                        "settings": {
-                            "title": "Grid image",
-                            "link-url": "",
-                            "link-text": "View more"
-                        }
-                    },
-                    "1519177136360-1": {
-                        "type": "image",
-                        "settings": {
-                            "title": "Grid image",
-                            "link-url": "",
-                            "link-text": "View more"
-                        }
-                    },
-                    "1519177136360-2": {
-                        "type": "image",
-                        "settings": {
-                            "title": "Grid image",
-                            "link-url": "",
-                            "link-text": "View more"
-                        }
-                    },
-                    "1519177136360-3": {
-                        "type": "image",
-                        "settings": {
-                            "title": "Grid image",
-                            "link-url": "",
-                            "link-text": "View more"
-                        }
-                    },
-                    "1521155794713": {
-                        "type": "image",
-                        "settings": {
-                            "title": "Grid image",
-                            "link-url": "",
-                            "link-text": "View more"
-                        }
-                    },
-                    "1521155797117": {
-                        "type": "image",
-                        "settings": {
-                            "title": "Grid image",
-                            "link-url": "",
-                            "link-text": "View more"
-                        }
-                    }
-                },
-                "block_order": [
-                    "1519177136360-0",
-                    "1519177136360-1",
-                    "1519177136360-2",
-                    "1519177136360-3",
-                    "1521155794713",
-                    "1521155797117"
-                ],
-                "disabled": true,
-                "settings": {
-                    "background-color": "none",
-                    "full-width": false,
-                    "spacing": true,
-                    "alternative-color": false,
-                    "text-position": "center",
-                    "width": 3,
-                    "mobile-width": "2",
-                    "title": "Featured grid",
-                    "subtitle": "",
-                    "link-url": "",
-                    "link-text": ""
-                }
-            },
-            "1519177181912": {
-                "type": "featured-collection",
-                "settings": {
-                    "background-color": "none",
-                    "home-product-slider-collection": "current-specials",
-                    "max_products": 12
-                }
-            },
-            "1519177316120": {
-                "type": "framework--newsletter",
-                "settings": {
-                    "background-color": "light",
-                    "heading": "Start Saving Today!",
-                    "newsletter--subheading": "<p>Sign up to have the latest news and member-only deals delivered straight to your inbox.<\/p>"
-                }
-            },
-            "1521155965634": {
-                "type": "framework--featured-text",
-                "settings": {
-                    "background-color": "light",
-                    "heading": "The Riehle's Select Promise",
-                    "text": "<p>Riehle's Select grows and harvest the best, most unique blends of gourmet popcorn available. At Riehle's Select you're getting <em><strong>true gourmet popcorn <\/strong><\/em>from the popcorn experts.<\/p>"
-                }
-            },
-            "1521155972652": {
-                "type": "framework--featured-video",
-                "disabled": true,
-                "settings": {
-                    "background-color": "light",
-                    "heading": "",
-                    "video_url": ""
-                }
-            },
-            "1521155992953": {
-                "type": "framework--map",
-                "disabled": true,
-                "settings": {
-                    "api-key": "",
-                    "map-address": "391 Sutter St, San Francisco",
-                    "background-color": "light",
-                    "theme": "grayscale",
-                    "heading": "Map",
-                    "address": "<p>391 Sutter St,<br\/>San Francisco<br\/>CA 94108, USA<br\/><br\/>(555) 555-5555<\/p>",
-                    "hours": "<p>Monday - Friday<br\/>10am - 6pm<br\/><br\/>Saturday - Sunday<br\/>12pm - 5pm<\/p>"
-                }
-            },
-            "1521156071253": {
-                "type": "framework--featured-content",
-                "disabled": true,
-                "settings": {
-                    "full-width": false,
-                    "background-color": "dark",
-                    "text-position": "left",
-                    "text-width": "large",
-                    "overlap": true,
-                    "transparent-overlap": false,
-                    "alternative-color": false,
-                    "image": "shopify:\/\/shop_images\/Riehle_s_BACKTOSCHOOL-Sample-HOMEPAGE_2.005.jpeg",
-                    "title": "Gift Card for Riehle's Select Popcorn",
-                    "description": "<p>Gift cards are delivered by email and contain instructions to redeem them at checkout.  If this is a gift for someone else, you will receive the gift card email and you can then forward it to whom you want to receive the gift card.<\/p>",
-                    "link-url": "https:\/\/www.selectpopcorn.com\/collections\/gift-sets\/products\/gift-card",
-                    "link-text": ""
-                }
-            },
-            "1530233365157": {
-                "type": "framework--instagram",
-                "disabled": true,
-                "settings": {
-                    "username": "",
-                    "access-token": "",
-                    "background-color": "none",
-                    "full-width": false,
-                    "spacing": true,
-                    "rows": 2,
-                    "columns": 5,
-                    "heading": "Instagram",
-                    "footer": "Follow @shopify on Instagram"
-                }
-            },
-            "pages": {
-                "type": "pages",
-                "settings": {
-                    "center-content--enabled": true
-                }
-            },
-            "framework--product-recommendations": {
-                "type": "framework--product-recommendations",
-                "settings": {
-                    "product-similar-products-show": true,
-                    "product-similar-products-heading": "You may also like"
-                }
-            },
-            "framework--register": {
-                "type": "framework--register",
-                "settings": {}
-            },
-            "1565800081840": {
-                "type": "framework--featured-collections",
-                "blocks": {
-                    "1565800081840-0": {
-                        "type": "collection",
-                        "settings": {
-                            "collection": "oils-and-toppings"
-                        }
-                    },
-                    "1565800081840-2": {
-                        "type": "collection",
-                        "settings": {
-                            "collection": "frontpage"
-                        }
-                    },
-                    "79bf285c-cd21-4152-a4b8-0ebf619da037": {
-                        "type": "collection",
-                        "settings": {
-                            "collection": "gift-sets"
-                        }
-                    }
-                },
-                "block_order": [
-                    "1565800081840-0",
-                    "1565800081840-2",
-                    "79bf285c-cd21-4152-a4b8-0ebf619da037"
-                ],
-                "settings": {
-                    "background-color": "none",
-                    "width": 3,
-                    "mobile-width": "2",
-                    "heading": "YOU WILL LOVE THESE SELECTIONS"
-                }
-            },
-            "1565800782458": {
-                "type": "framework--featured-product",
-                "settings": {
-                    "background-color": "none",
-                    "smart_payment_button": true,
-                    "heading": "",
-                    "featured_product": "microwave-popcorn",
-                    "show_vendor": false
-                }
-            },
-            "1519177052247": {
-                "type": "slideshow",
-                "settings": {
-                    "image": "shopify:\/\/shop_images\/Screenshot_2026-04-17_at_4.15.02_PM_2.webp",
-                    "image_mobile": "shopify:\/\/shop_images\/Image_8_1.png",
-                    "show_stars": true,
-                    "star_text": "4\/5 Stars",
-                    "star_tagline": "Loved by popcorn enthusiasts for its tender, hulless crunch",
-                    "heading_line_1": "HEALTHY SNACKING",
-                    "heading_line_2": "DONE IN GOOD TASTE",
-                    "subtitle": "Non-GMO, small-batch kernels grown on our family farm and delivered straight to your home.",
-                    "badge_1": "Non GMO",
-                    "badge_2": "No Preservatives",
-                    "badge_3": "From Our Family",
-                    "button_text": "Shop Popcorn",
-                    "button_url": ""
-                }
-            },
-            "framework_featured_text_iRV8MD": {
-                "type": "framework--featured-text",
-                "name": "Rich text",
-                "settings": {
-                    "background-color": "light",
-                    "heading": "Riehle's Select Popcorn",
-                    "text": "<p>Riehle’s Select Gourmet Popcorn is a family owned Indiana popcorn company growing, cleaning, and packing premium kernels on our farm. Explore tender hulless, classic white and yellow, and specialty varieties, plus popping oils, seasonings, and poppers for perfect results at home. Enjoy fresh, non-GMO gourmet popcorn shipped nationwide, with bulk and gift options ready for movie night, events, and everyday snacking.<\/p>"
-                }
-            },
-            "framework_featured_content_HzQ3zq": {
-                "type": "framework--featured-content",
-                "settings": {
-                    "full-width": false,
-                    "background-color": "dark",
-                    "text-position": "left",
-                    "text-width": "large",
-                    "overlap": false,
-                    "transparent-overlap": false,
-                    "alternative-color": true,
-                    "image": "shopify:\/\/shop_images\/popcorn-6977152_1280.jpg",
-                    "title": "Smart Snacking Choices",
-                    "description": "<p>Choose a better-for-you snack. Our non-GMO, whole grain popcorn kernels are naturally gluten free and vegan, delivering light crunch, satisfying fiber, and clean ingredients in every batch. Pick classic yellow or delicate white varieties, pair with simple popping oils and seasonings, and enjoy fresh, wholesome flavor for school lunches, game day, office breaks, and cozy movie nights.<\/p>",
-                    "link-url": "shopify:\/\/collections\/all",
-                    "link-text": "Our Popcorn"
-                }
-            }
-        },
-        "content_for_index": [
-            "1519177052247",
-            "framework_featured_text_iRV8MD",
-            "1519177181912",
-            "1519177108222",
-            "1519177136360",
-            "1565800782458",
-            "1521155965634",
-            "1521155972652",
-            "1530233365157",
-            "1565800081840",
-            "framework_featured_content_HzQ3zq",
-            "1521156071253",
-            "1521155992953",
-            "1519177316120"
-        ],
+  "current": {
+    "color--accent": "#267191",
+    "color-text": "#272727",
+    "color--alternative": "#ffffff",
+    "color-page-bg": "#ffffff",
+    "color-panel-bg": "#f7f7f7",
+    "color-border": "#ebebeb",
+    "color-error": "#f66767",
+    "color-button": "#ffffff",
+    "color-button-bg": "#267191",
+    "color-header-bg": "#ffffff",
+    "color-header": "#272727",
+    "color-header-cart": "#272727",
+    "color-footer-bg": "#267191",
+    "color-footer": "#ffffff",
+    "color-slider-caption": "#272727",
+    "color-slider-caption-bg": "#ffffff",
+    "color-slider-button": "#f7f7f7",
+    "color-slider-button-bg": "#272727",
+    "color-slider-button-hover-bg": "#474747",
+    "color-slider-nav": "#272727",
+    "color-grid-sale": "#ffffff",
+    "color-grid-sale-bg": "#272727",
+    "color-grid-sold-out": "#ffffff",
+    "color-grid-sold-out-bg": "#cccccc",
+    "color-tabs-accordions": "#ebebeb",
+    "typography--heading": "roboto_n7",
+    "typography--heading--uppercase": true,
+    "typography--heading--size": "large",
+    "typography--accent": "karla_n4",
+    "typography--paragraph": "roboto_n4",
+    "typography--paragraph--size": "medium",
+    "hover-image-enabled": true,
+    "brand-show": false,
+    "search--show-in-header": true,
+    "search--show-articles": true,
+    "search--show-pages": true,
+    "footer-facebook-follow-url": "https://www.facebook.com/riehles.select.gourmet.popping.corn/",
+    "footer-twitter-follow-url": "",
+    "footer-instagram-follow-url": "https://www.instagram.com/riehleselectpopcorn/",
+    "footer-vimeo-follow-url": "",
+    "footer-pinterest-follow-url": "",
+    "footer-youtube-follow-url": "",
+    "footer-tumblr-follow-url": "",
+    "popup--enabled": false,
+    "popup--test-mode": false,
+    "popup--image": "",
+    "popup--image-url": "",
+    "popup--page-content": "",
+    "popup--newsletter--enabled": true,
+    "popup--newsletter--heading": "Sign up to our mailing list",
+    "popup--social-icons--enabled": true,
+    "popup--seconds-range": 3,
+    "popup--days-range": 7,
+    "show_multiple_currencies": false,
+    "currency_format": "money_format",
+    "supported_currencies": "INR GBP CAD USD AUD EUR JPY",
+    "default_currency": "USD",
+    "favicon": "",
+    "cart--type": "drawer",
+    "cart--show-note": true,
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#197bbd",
+    "checkout_button_color": "#197bbd",
+    "checkout_error_color": "#e32c2b",
+    "color-text-alt": "#999999",
+    "color-button-bg-hover": "#777777",
+    "color-twitter-tone": "light",
+    "color-product-slider-bg": "#ffffff",
+    "color-featured-promo-bg": "#f7f7f7",
+    "color-social-feed-bg": "#ffffff",
+    "color-product-cart-button": "#f7f7f7",
+    "color-product-cart-button-bg": "#272727",
+    "color-product-cart-button-bg-hover": "#474747",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "transparent-menu": false,
+          "menu": "main-menu",
+          "header-account-show": false,
+          "header-menu-center": true,
+          "header-logo-center": true,
+          "logo": "shopify://shop_images/logoSelectPopcorn.png",
+          "logo-height": 100,
+          "announcement--background-color": "accent",
+          "announcement--alternative-color": true,
+          "header--promo-bar--show-on": "all",
+          "header--promo-bar--text": "Kettle Microwave Popcorn Sale!  $39/case $3.50/box",
+          "header--promo-bar--link": "shopify://collections/microwave"
+        }
+      },
+      "footer": {
+        "type": "footer",
         "blocks": {
-            "1513253815146976218": {
-                "type": "shopify:\/\/apps\/omnisend-email-marketing-sms\/blocks\/app-embed\/44704aa2-794f-4c5d-8c8e-039c841158e9",
-                "disabled": false,
-                "settings": {}
+          "footer--about": {
+            "type": "about",
+            "settings": {
+              "about-title": "THANKS FOR VISITING",
+              "text": "<p>© COPYRIGHT 2026 Riehle's Select Popcorn</p><p></p>",
+              "footer-payment-options-show": false
             }
+          },
+          "footer--menu": {
+            "type": "menu",
+            "settings": {
+              "menu-title": "Info",
+              "menu": "footer"
+            }
+          },
+          "footer--subscribe": {
+            "type": "subscribe",
+            "settings": {
+              "newsletter--heading": "<p>Sign up to our mailing list</p>",
+              "subscribe--show-newsletter": true,
+              "subscribe--show-social-icons": true
+            }
+          }
+        },
+        "block_order": [
+          "footer--about",
+          "footer--menu",
+          "footer--subscribe"
+        ],
+        "settings": {}
+      },
+      "product": {
+        "type": "product",
+        "settings": {
+          "product-breadcrumbs-show": true,
+          "smart_payment_button": false,
+          "product-unavailable-form-show": true,
+          "product-modal-enabled": true,
+          "product-zoom-enabled": true,
+          "low-in-stock-amount": 0,
+          "cart-form-position": "left",
+          "product-size-chart-enabled": false,
+          "product-size-chart-option": "size",
+          "product-size-chart-page-content": "",
+          "product-share-this-show": false,
+          "product-share-twitter": true,
+          "product-share-facebook": true,
+          "product-share-pinterest": true,
+          "product-share-tumblr": true
         }
+      },
+      "collection": {
+        "type": "collection",
+        "settings": {
+          "collections-breadcrumbs-show": true,
+          "collections-tags-show": true,
+          "show-title": false,
+          "collections-products-per-row": "4",
+          "mobile-items-per-row": "2"
+        }
+      },
+      "1519177108222": {
+        "type": "framework--featured-content",
+        "settings": {
+          "full-width": true,
+          "background-color": "dark",
+          "text-position": "right",
+          "text-width": "small",
+          "overlap": false,
+          "transparent-overlap": false,
+          "alternative-color": true,
+          "image": "shopify://shop_images/Riehle_s_labor_day_specials.005.jpeg",
+          "title": "Indiana Grown Gourmet Popcorn",
+          "description": "<p>Riehle’s Select Gourmet Popcorn is a family owned, family run popcorn company rooted in the rich farmland of southeastern Indiana. We plant, harvest, clean, and pack our kernels on our farm in the Midwest, then ship them fresh to your door across the United States. Our lineup features tender hulless options, classic white and yellow gourmet popcorn, and specialty kernels prized for big, fluffy flakes and dependable popping performance.<br/><br/>Whether you use a stovetop popper, air popper, or electric popcorn machine, you can count on light, crisp texture and full flavor in every bowl. Shop by popcorn type and kernel size, add popping oils and seasonings, or stock up with bulk and wholesale cases for events, fundraisers, offices, and concession stands. Farm fresh quality, friendly service, and consistent results make Riehle’s a favorite for movie night and everyday snacking.</p>",
+          "link-url": "shopify://pages/about-us",
+          "link-text": "Learn More About Us"
+        }
+      },
+      "1519177136360": {
+        "type": "framework--featured-grid",
+        "blocks": {
+          "1519177136360-0": {
+            "type": "image",
+            "settings": {
+              "title": "Grid image",
+              "link-url": "",
+              "link-text": "View more"
+            }
+          },
+          "1519177136360-1": {
+            "type": "image",
+            "settings": {
+              "title": "Grid image",
+              "link-url": "",
+              "link-text": "View more"
+            }
+          },
+          "1519177136360-2": {
+            "type": "image",
+            "settings": {
+              "title": "Grid image",
+              "link-url": "",
+              "link-text": "View more"
+            }
+          },
+          "1519177136360-3": {
+            "type": "image",
+            "settings": {
+              "title": "Grid image",
+              "link-url": "",
+              "link-text": "View more"
+            }
+          },
+          "1521155794713": {
+            "type": "image",
+            "settings": {
+              "title": "Grid image",
+              "link-url": "",
+              "link-text": "View more"
+            }
+          },
+          "1521155797117": {
+            "type": "image",
+            "settings": {
+              "title": "Grid image",
+              "link-url": "",
+              "link-text": "View more"
+            }
+          }
+        },
+        "block_order": [
+          "1519177136360-0",
+          "1519177136360-1",
+          "1519177136360-2",
+          "1519177136360-3",
+          "1521155794713",
+          "1521155797117"
+        ],
+        "disabled": true,
+        "settings": {
+          "background-color": "none",
+          "full-width": false,
+          "spacing": true,
+          "alternative-color": false,
+          "text-position": "center",
+          "width": 3,
+          "mobile-width": "2",
+          "title": "Featured grid",
+          "subtitle": "",
+          "link-url": "",
+          "link-text": ""
+        }
+      },
+      "1519177181912": {
+        "type": "featured-collection",
+        "settings": {
+          "background-color": "none",
+          "home-product-slider-collection": "current-specials",
+          "max_products": 12
+        }
+      },
+      "1519177316120": {
+        "type": "framework--newsletter",
+        "settings": {
+          "background-color": "light",
+          "heading": "Start Saving Today!",
+          "newsletter--subheading": "<p>Sign up to have the latest news and member-only deals delivered straight to your inbox.</p>"
+        }
+      },
+      "1521155965634": {
+        "type": "framework--featured-text",
+        "settings": {
+          "background-color": "light",
+          "heading": "The Riehle's Select Promise",
+          "text": "<p>Riehle's Select grows and harvest the best, most unique blends of gourmet popcorn available. At Riehle's Select you're getting <em><strong>true gourmet popcorn </strong></em>from the popcorn experts.</p>"
+        }
+      },
+      "1521155972652": {
+        "type": "framework--featured-video",
+        "disabled": true,
+        "settings": {
+          "background-color": "light",
+          "heading": "",
+          "video_url": ""
+        }
+      },
+      "1521155992953": {
+        "type": "framework--map",
+        "disabled": true,
+        "settings": {
+          "api-key": "",
+          "map-address": "391 Sutter St, San Francisco",
+          "background-color": "light",
+          "theme": "grayscale",
+          "heading": "Map",
+          "address": "<p>391 Sutter St,<br/>San Francisco<br/>CA 94108, USA<br/><br/>(555) 555-5555</p>",
+          "hours": "<p>Monday - Friday<br/>10am - 6pm<br/><br/>Saturday - Sunday<br/>12pm - 5pm</p>"
+        }
+      },
+      "1521156071253": {
+        "type": "framework--featured-content",
+        "disabled": true,
+        "settings": {
+          "full-width": false,
+          "background-color": "dark",
+          "text-position": "left",
+          "text-width": "large",
+          "overlap": true,
+          "transparent-overlap": false,
+          "alternative-color": false,
+          "image": "shopify://shop_images/Riehle_s_BACKTOSCHOOL-Sample-HOMEPAGE_2.005.jpeg",
+          "title": "Gift Card for Riehle's Select Popcorn",
+          "description": "<p>Gift cards are delivered by email and contain instructions to redeem them at checkout.  If this is a gift for someone else, you will receive the gift card email and you can then forward it to whom you want to receive the gift card.</p>",
+          "link-url": "https://www.selectpopcorn.com/collections/gift-sets/products/gift-card",
+          "link-text": ""
+        }
+      },
+      "1530233365157": {
+        "type": "framework--instagram",
+        "disabled": true,
+        "settings": {
+          "username": "",
+          "access-token": "",
+          "background-color": "none",
+          "full-width": false,
+          "spacing": true,
+          "rows": 2,
+          "columns": 5,
+          "heading": "Instagram",
+          "footer": "Follow @shopify on Instagram"
+        }
+      },
+      "pages": {
+        "type": "pages",
+        "settings": {
+          "center-content--enabled": true
+        }
+      },
+      "framework--product-recommendations": {
+        "type": "framework--product-recommendations",
+        "settings": {
+          "product-similar-products-show": true,
+          "product-similar-products-heading": "You may also like"
+        }
+      },
+      "framework--register": {
+        "type": "framework--register",
+        "settings": {}
+      },
+      "1565800081840": {
+        "type": "framework--featured-collections",
+        "blocks": {
+          "1565800081840-0": {
+            "type": "collection",
+            "settings": {
+              "collection": "oils-and-toppings"
+            }
+          },
+          "1565800081840-2": {
+            "type": "collection",
+            "settings": {
+              "collection": "frontpage"
+            }
+          },
+          "79bf285c-cd21-4152-a4b8-0ebf619da037": {
+            "type": "collection",
+            "settings": {
+              "collection": "gift-sets"
+            }
+          }
+        },
+        "block_order": [
+          "1565800081840-0",
+          "1565800081840-2",
+          "79bf285c-cd21-4152-a4b8-0ebf619da037"
+        ],
+        "settings": {
+          "background-color": "none",
+          "width": 3,
+          "mobile-width": "2",
+          "heading": "YOU WILL LOVE THESE SELECTIONS"
+        }
+      },
+      "1565800782458": {
+        "type": "framework--featured-product",
+        "settings": {
+          "background-color": "none",
+          "smart_payment_button": true,
+          "heading": "",
+          "featured_product": "microwave-popcorn",
+          "show_vendor": false
+        }
+      },
+      "1519177052247": {
+        "type": "slideshow",
+        "settings": {
+          "image": "shopify://shop_images/Screenshot_2026-04-17_at_4.15.02_PM_2.webp",
+          "image_mobile": "shopify://shop_images/Image_8_1.png",
+          "show_stars": true,
+          "star_text": "4/5 Stars",
+          "star_tagline": "Loved by popcorn enthusiasts for its tender, hulless crunch",
+          "heading_line_1": "HEALTHY SNACKING",
+          "heading_line_2": "DONE IN GOOD TASTE",
+          "subtitle": "Non-GMO, small-batch kernels grown on our family farm and delivered straight to your home.",
+          "badge_1": "Non GMO",
+          "badge_2": "No Preservatives",
+          "badge_3": "From Our Family",
+          "button_text": "Shop Popcorn",
+          "button_url": "shopify://collections"
+        }
+      },
+      "framework_featured_text_iRV8MD": {
+        "type": "framework--featured-text",
+        "name": "Rich text",
+        "settings": {
+          "background-color": "light",
+          "heading": "Riehle's Select Popcorn",
+          "text": "<p>Riehle’s Select Gourmet Popcorn is a family owned Indiana popcorn company growing, cleaning, and packing premium kernels on our farm. Explore tender hulless, classic white and yellow, and specialty varieties, plus popping oils, seasonings, and poppers for perfect results at home. Enjoy fresh, non-GMO gourmet popcorn shipped nationwide, with bulk and gift options ready for movie night, events, and everyday snacking.</p>"
+        }
+      },
+      "framework_featured_content_HzQ3zq": {
+        "type": "framework--featured-content",
+        "settings": {
+          "full-width": false,
+          "background-color": "dark",
+          "text-position": "left",
+          "text-width": "large",
+          "overlap": false,
+          "transparent-overlap": false,
+          "alternative-color": true,
+          "image": "shopify://shop_images/popcorn-6977152_1280.jpg",
+          "title": "Smart Snacking Choices",
+          "description": "<p>Choose a better-for-you snack. Our non-GMO, whole grain popcorn kernels are naturally gluten free and vegan, delivering light crunch, satisfying fiber, and clean ingredients in every batch. Pick classic yellow or delicate white varieties, pair with simple popping oils and seasonings, and enjoy fresh, wholesome flavor for school lunches, game day, office breaks, and cozy movie nights.</p>",
+          "link-url": "shopify://collections/all",
+          "link-text": "Our Popcorn"
+        }
+      }
     },
-    "presets": {
-        "Beauty": {
-            "typography--heading": "roboto_n7",
-            "typography--heading--uppercase": true,
-            "typography--heading--size": "small",
-            "typography--accent": "karla_n4",
-            "typography--paragraph": "roboto_n4",
-            "typography--paragraph--size": "medium",
-            "color--accent": "#ffd7d7",
-            "color-text": "#272727",
-            "color-text-alt": "#999999",
-            "color-page-bg": "#ffffff",
-            "color-panel-bg": "#f7f7f7",
-            "color-border": "#ebebeb",
-            "color-error": "#f66767",
-            "color-button": "#ffffff",
-            "color-button-bg": "#272727",
-            "color-button-bg-hover": "#777777",
-            "color-twitter-tone": "light",
-            "color-header-bg": "#ffd7d7",
-            "color-header": "#272727",
-            "color-header-cart": "#272727",
-            "color-footer-bg": "#ffd7d7",
-            "color-footer": "#272727",
-            "color-slider-caption": "#272727",
-            "color-slider-caption-bg": "#ffffff",
-            "color-slider-button": "#f7f7f7",
-            "color-slider-button-bg": "#272727",
-            "color-slider-button-hover-bg": "#474747",
-            "color-slider-nav": "#272727",
-            "color-product-slider-bg": "#ffffff",
-            "color-featured-promo-bg": "#f7f7f7",
-            "color-social-feed-bg": "#ffffff",
-            "color-grid-sale": "#ffffff",
-            "color-grid-sale-bg": "#272727",
-            "color-grid-sold-out": "#ffffff",
-            "color-grid-sold-out-bg": "#cccccc",
-            "color-product-cart-button": "#f7f7f7",
-            "color-product-cart-button-bg": "#272727",
-            "color-product-cart-button-bg-hover": "#474747",
-            "color-tabs-accordions": "#ebebeb",
-            "sections": {
-                "header": {
-                    "type": "header",
-                    "settings": {
-                        "transparent-menu": false,
-                        "menu": "main-menu",
-                        "header-account-show": true,
-                        "header-menu-center": true,
-                        "header-logo-center": true,
-                        "logo": "",
-                        "logo-height": 35,
-                        "header--promo-bar--show-on": "all",
-                        "header--promo-bar--text": "Add your promotional message",
-                        "header--promo-bar--link": ""
-                    }
-                },
-                "footer": {
-                    "type": "footer",
-                    "blocks": {
-                        "footer--about": {
-                            "type": "about",
-                            "settings": {
-                                "about-title": "Store",
-                                "footer-payment-options-show": true
-                            }
-                        },
-                        "footer--menu": {
-                            "type": "menu",
-                            "settings": {
-                                "menu-title": "Info",
-                                "menu": "footer"
-                            }
-                        },
-                        "footer--subscribe": {
-                            "type": "subscribe",
-                            "settings": {
-                                "newsletter--heading": "<p>Sign up to our mailing list<\/p>",
-                                "subscribe--show-newsletter": true,
-                                "subscribe--show-social-icons": true
-                            }
-                        }
-                    },
-                    "block_order": [
-                        "footer--about",
-                        "footer--menu",
-                        "footer--subscribe"
-                    ],
-                    "settings": {}
-                },
-                "product": {
-                    "type": "product",
-                    "settings": {
-                        "product-breadcrumbs-show": true,
-                        "product-unavailable-form-show": true,
-                        "product-modal-enabled": true,
-                        "product-zoom-enabled": true,
-                        "low-in-stock-amount": 0,
-                        "cart-form-position": "left",
-                        "product-size-chart-enabled": false,
-                        "product-size-chart-option": "size",
-                        "product-size-chart-page-content": "",
-                        "product-share-this-show": true,
-                        "product-share-twitter": true,
-                        "product-share-facebook": true,
-                        "product-share-pinterest": true,
-                        "product-share-tumblr": true
-                    }
-                },
-                "collection": {
-                    "type": "collection",
-                    "settings": {
-                        "collections-breadcrumbs-show": true,
-                        "collections-tags-show": true,
-                        "collections-products-per-row": "4",
-                        "mobile-items-per-row": "2"
-                    }
-                },
-                "1519177052247": {
-                    "type": "slideshow",
-                    "settings": {}
-                },
-                "1519177108222": {
-                    "type": "framework--featured-content",
-                    "settings": {
-                        "full-width": true,
-                        "background-color": "accent",
-                        "text-position": "right",
-                        "text-width": "small",
-                        "overlap": false,
-                        "transparent-overlap": false,
-                        "alternative-color": false,
-                        "image": "",
-                        "title": "Image with text",
-                        "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store<\/p>",
-                        "link-url": "",
-                        "link-text": ""
-                    }
-                },
-                "1519177136360": {
-                    "type": "framework--featured-grid",
-                    "blocks": {
-                        "1519177136360-0": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1519177136360-1": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1519177136360-2": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1519177136360-3": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1521155794713": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1521155797117": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        }
-                    },
-                    "block_order": [
-                        "1519177136360-0",
-                        "1519177136360-1",
-                        "1519177136360-2",
-                        "1519177136360-3",
-                        "1521155794713",
-                        "1521155797117"
-                    ],
-                    "settings": {
-                        "background-color": "none",
-                        "full-width": false,
-                        "spacing": true,
-                        "alternative-color": false,
-                        "text-position": "center",
-                        "width": 3,
-                        "mobile-width": "2",
-                        "title": "Featured grid",
-                        "subtitle": "",
-                        "link-url": "",
-                        "link-text": ""
-                    }
-                },
-                "1519177181912": {
-                    "type": "featured-collection",
-                    "settings": {
-                        "background-color": "none",
-                        "home-product-slider-collection": "",
-                        "max_products": 12
-                    }
-                },
-                "1519177213210": {
-                    "type": "framework--featured-content",
-                    "settings": {
-                        "full-width": true,
-                        "background-color": "light",
-                        "text-position": "center",
-                        "text-width": "large",
-                        "overlap": true,
-                        "transparent-overlap": true,
-                        "alternative-color": false,
-                        "image": "",
-                        "title": "Image with text",
-                        "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store<\/p>",
-                        "link-url": "",
-                        "link-text": ""
-                    }
-                },
-                "1519177316120": {
-                    "type": "framework--newsletter",
-                    "settings": {
-                        "background-color": "none",
-                        "heading": "Subscribe to our newsletter",
-                        "newsletter--subheading": "<p>A short sentence describing what someone will receive by subscribing<\/p>"
-                    }
-                },
-                "1521155965634": {
-                    "type": "framework--featured-text",
-                    "settings": {
-                        "background-color": "none",
-                        "heading": "Talk about your brand",
-                        "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
-                    }
-                },
-                "1521155972652": {
-                    "type": "framework--featured-video",
-                    "settings": {
-                        "background-color": "light",
-                        "heading": "",
-                        "video_url": ""
-                    }
-                },
-                "1521155992953": {
-                    "type": "framework--map",
-                    "settings": {
-                        "api-key": "",
-                        "map-address": "391 Sutter St, San Francisco",
-                        "background-color": "light",
-                        "theme": "grayscale",
-                        "heading": "Map",
-                        "address": "<p>391 Sutter St,<br>San Francisco<br>CA 94108, USA<br><br>(555) 555-5555<\/p>",
-                        "hours": "<p>Monday - Friday<br>10am - 6pm<br><br>Saturday - Sunday<br>12pm - 5pm<\/p>",
-                        "image": ""
-                    }
-                },
-                "1521156071253": {
-                    "type": "framework--featured-content",
-                    "settings": {
-                        "full-width": false,
-                        "background-color": "light",
-                        "text-position": "left",
-                        "text-width": "small",
-                        "overlap": true,
-                        "transparent-overlap": false,
-                        "alternative-color": false,
-                        "image": "",
-                        "title": "Image with text",
-                        "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store<\/p>",
-                        "link-url": "",
-                        "link-text": ""
-                    }
-                },
-                "1530233365157": {
-                    "type": "framework--instagram",
-                    "settings": {
-                        "username": "",
-                        "access-token": "",
-                        "background-color": "none",
-                        "full-width": false,
-                        "spacing": true,
-                        "rows": 2,
-                        "columns": 5,
-                        "heading": "Instagram",
-                        "footer": "Follow @shopify on Instagram"
-                    }
-                }
-            },
-            "content_for_index": [
-                "1519177052247",
-                "1519177181912",
-                "1519177108222",
-                "1519177136360",
-                "1519177213210",
-                "1521155965634",
-                "1521155972652",
-                "1530233365157",
-                "1521156071253",
-                "1521155992953",
-                "1519177316120"
-            ]
-        },
-        "Moto": {
-            "typography--heading": "itc_franklin_gothic_n5",
-            "typography--heading--uppercase": true,
-            "typography--heading--size": "small",
-            "typography--accent": "itc_franklin_gothic_n4",
-            "typography--paragraph": "itc_franklin_gothic_n4",
-            "typography--paragraph--size": "medium",
-            "color--accent": "#f2efeb",
-            "color-text": "#212121",
-            "color-text-alt": "#b5b5b5",
-            "color-page-bg": "#ffffff",
-            "color-panel-bg": "#ffffff",
-            "color-border": "#ebebeb",
-            "color-error": "#f66767",
-            "color-button": "#f7f7f7",
-            "color-button-bg": "#313131",
-            "color-button-bg-hover": "#444444",
-            "color-twitter-tone": "light",
-            "color-header-bg": "#212121",
-            "color-header": "#ffffff",
-            "color-header-cart": "#ffffff",
-            "color-footer-bg": "#212121",
-            "color-footer": "#fefefe",
-            "color-slider-caption": "#272727",
-            "color-slider-caption-bg": "#ffffff",
-            "color-slider-button": "#f7f7f7",
-            "color-slider-button-bg": "#313131",
-            "color-slider-button-hover-bg": "#444444",
-            "color-slider-nav": "#444444",
-            "color-product-slider-bg": "#ffffff",
-            "color-featured-promo-bg": "#f7f7f7",
-            "color-social-feed-bg": "#ffffff",
-            "color-grid-sale": "#ffffff",
-            "color-grid-sale-bg": "#313131",
-            "color-grid-sold-out": "#ffffff",
-            "color-grid-sold-out-bg": "#cccccc",
-            "color-product-cart-button": "#f7f7f7",
-            "color-product-cart-button-bg": "#313131",
-            "color-product-cart-button-bg-hover": "#444444",
-            "color-tabs-accordions": "#ebebeb",
-            "sections": {
-                "header": {
-                    "type": "header",
-                    "settings": {
-                        "transparent-menu": false,
-                        "menu": "main-menu",
-                        "header-account-show": true,
-                        "header-menu-center": true,
-                        "header-logo-center": true,
-                        "logo": "",
-                        "logo-height": 35,
-                        "header--promo-bar--show-on": "all",
-                        "header--promo-bar--text": "Add your promotional message",
-                        "header--promo-bar--link": ""
-                    }
-                },
-                "footer": {
-                    "type": "footer",
-                    "blocks": {
-                        "footer--about": {
-                            "type": "about",
-                            "settings": {
-                                "about-title": "Store",
-                                "footer-payment-options-show": true
-                            }
-                        },
-                        "footer--menu": {
-                            "type": "menu",
-                            "settings": {
-                                "menu-title": "Info",
-                                "menu": "footer"
-                            }
-                        },
-                        "footer--subscribe": {
-                            "type": "subscribe",
-                            "settings": {
-                                "newsletter--heading": "<p>Sign up to our mailing list<\/p>",
-                                "subscribe--show-newsletter": true,
-                                "subscribe--show-social-icons": true
-                            }
-                        }
-                    },
-                    "block_order": [
-                        "footer--about",
-                        "footer--menu",
-                        "footer--subscribe"
-                    ],
-                    "settings": {}
-                },
-                "product": {
-                    "type": "product",
-                    "settings": {
-                        "product-breadcrumbs-show": true,
-                        "product-unavailable-form-show": true,
-                        "product-modal-enabled": true,
-                        "product-zoom-enabled": true,
-                        "low-in-stock-amount": 0,
-                        "cart-form-position": "left",
-                        "product-size-chart-enabled": false,
-                        "product-size-chart-option": "size",
-                        "product-size-chart-page-content": "",
-                        "product-share-this-show": true,
-                        "product-share-twitter": true,
-                        "product-share-facebook": true,
-                        "product-share-pinterest": true,
-                        "product-share-tumblr": true
-                    }
-                },
-                "collection": {
-                    "type": "collection",
-                    "settings": {
-                        "collections-breadcrumbs-show": true,
-                        "collections-tags-show": true,
-                        "collections-products-per-row": "4",
-                        "mobile-items-per-row": "2"
-                    }
-                },
-                "1519177052247": {
-                    "type": "slideshow",
-                    "settings": {}
-                },
-                "1519177108222": {
-                    "type": "framework--featured-content",
-                    "settings": {
-                        "full-width": true,
-                        "background-color": "accent",
-                        "text-position": "right",
-                        "text-width": "small",
-                        "overlap": false,
-                        "transparent-overlap": false,
-                        "alternative-color": false,
-                        "image": "",
-                        "title": "Image with text",
-                        "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store<\/p>",
-                        "link-url": "",
-                        "link-text": ""
-                    }
-                },
-                "1519177136360": {
-                    "type": "framework--featured-grid",
-                    "blocks": {
-                        "1519177136360-0": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1519177136360-1": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1519177136360-2": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1519177136360-3": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1521155794713": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1521155797117": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        }
-                    },
-                    "block_order": [
-                        "1519177136360-0",
-                        "1519177136360-1",
-                        "1519177136360-2",
-                        "1519177136360-3",
-                        "1521155794713",
-                        "1521155797117"
-                    ],
-                    "settings": {
-                        "background-color": "none",
-                        "full-width": false,
-                        "spacing": true,
-                        "alternative-color": false,
-                        "text-position": "center",
-                        "width": 3,
-                        "mobile-width": "2",
-                        "title": "Featured grid",
-                        "subtitle": "",
-                        "link-url": "",
-                        "link-text": ""
-                    }
-                },
-                "1519177181912": {
-                    "type": "featured-collection",
-                    "settings": {
-                        "background-color": "none",
-                        "home-product-slider-collection": "",
-                        "max_products": 12
-                    }
-                },
-                "1519177213210": {
-                    "type": "framework--featured-content",
-                    "settings": {
-                        "full-width": true,
-                        "background-color": "light",
-                        "text-position": "center",
-                        "text-width": "large",
-                        "overlap": true,
-                        "transparent-overlap": true,
-                        "alternative-color": false,
-                        "image": "",
-                        "title": "Image with text",
-                        "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store<\/p>",
-                        "link-url": "",
-                        "link-text": ""
-                    }
-                },
-                "1519177316120": {
-                    "type": "framework--newsletter",
-                    "settings": {
-                        "background-color": "none",
-                        "heading": "Subscribe to our newsletter",
-                        "newsletter--subheading": "<p>A short sentence describing what someone will receive by subscribing<\/p>"
-                    }
-                },
-                "1521155965634": {
-                    "type": "framework--featured-text",
-                    "settings": {
-                        "background-color": "none",
-                        "heading": "Talk about your brand",
-                        "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
-                    }
-                },
-                "1521155972652": {
-                    "type": "framework--featured-video",
-                    "settings": {
-                        "background-color": "light",
-                        "heading": "",
-                        "video_url": ""
-                    }
-                },
-                "1521155992953": {
-                    "type": "framework--map",
-                    "settings": {
-                        "api-key": "",
-                        "map-address": "391 Sutter St, San Francisco",
-                        "background-color": "light",
-                        "theme": "grayscale",
-                        "heading": "Map",
-                        "address": "<p>391 Sutter St,<br>San Francisco<br>CA 94108, USA<br><br>(555) 555-5555<\/p>",
-                        "hours": "<p>Monday - Friday<br>10am - 6pm<br><br>Saturday - Sunday<br>12pm - 5pm<\/p>",
-                        "image": ""
-                    }
-                },
-                "1521156071253": {
-                    "type": "framework--featured-content",
-                    "settings": {
-                        "full-width": false,
-                        "background-color": "light",
-                        "text-position": "left",
-                        "text-width": "small",
-                        "overlap": true,
-                        "transparent-overlap": false,
-                        "alternative-color": false,
-                        "image": "",
-                        "title": "Image with text",
-                        "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store<\/p>",
-                        "link-url": "",
-                        "link-text": ""
-                    }
-                },
-                "1530233365157": {
-                    "type": "framework--instagram",
-                    "settings": {
-                        "username": "",
-                        "access-token": "",
-                        "background-color": "none",
-                        "full-width": false,
-                        "spacing": true,
-                        "rows": 2,
-                        "columns": 5,
-                        "heading": "Instagram",
-                        "footer": "Follow @shopify on Instagram"
-                    }
-                }
-            },
-            "content_for_index": [
-                "1519177052247",
-                "1519177181912",
-                "1519177108222",
-                "1519177136360",
-                "1519177213210",
-                "1521155965634",
-                "1521155972652",
-                "1530233365157",
-                "1521156071253",
-                "1521155992953",
-                "1519177316120"
-            ]
-        },
-        "Summer": {
-            "typography--heading": "gill_sans_nova_n4",
-            "typography--heading--uppercase": false,
-            "typography--heading--size": "medium",
-            "typography--accent": "gill_sans_nova_n4",
-            "typography--paragraph": "gill_sans_nova_n4",
-            "typography--paragraph--size": "medium",
-            "color--accent": "#ffe0c8",
-            "color-text": "#444444",
-            "color--alternative": "#ffffff",
-            "color-page-bg": "#ffffff",
-            "color-panel-bg": "#f7f7f7",
-            "color-border": "#ebebeb",
-            "color-error": "#f66767",
-            "color-button": "#ffffff",
-            "color-button-bg": "#444444",
-            "color-header-bg": "#F7F7F7",
-            "color-header": "#444444",
-            "color-header-cart": "#444444",
-            "color-footer-bg": "#f7f7f7",
-            "color-footer": "#333333",
-            "color-slider-caption": "#444444",
-            "color-slider-caption-bg": "#ffffff",
-            "color-slider-button": "#f7f7f7",
-            "color-slider-button-bg": "#444444",
-            "color-slider-button-hover-bg": "#999999",
-            "color-slider-nav": "#444444",
-            "color-grid-sale": "#ffffff",
-            "color-grid-sale-bg": "#444444",
-            "color-grid-sold-out": "#ffffff",
-            "color-grid-sold-out-bg": "#cccccc",
-            "color-tabs-accordions": "#ebebeb",
-            "color-twitter-tone": "light",
-            "color-link": "#999999",
-            "color-link-hover": "#444444",
-            "color-text-alt": "#999999",
-            "color-button-bg-hover": "#777777",
-            "color-product-slider-bg": "#ffffff",
-            "color-featured-promo-bg": "#f7f7f7",
-            "color-social-feed-bg": "#ffffff",
-            "color-product-cart-button": "#f7f7f7",
-            "color-product-cart-button-bg": "#444444",
-            "color-product-cart-button-bg-hover": "#999999",
-            "sections": {
-                "header": {
-                    "type": "header",
-                    "settings": {
-                        "transparent-menu": false,
-                        "menu": "main-menu",
-                        "header-account-show": true,
-                        "header-menu-center": true,
-                        "header-logo-center": true,
-                        "logo": "",
-                        "logo-height": 35,
-                        "announcement--background-color": "accent",
-                        "announcement--alternative-color": false,
-                        "header--promo-bar--show-on": "all",
-                        "header--promo-bar--text": "Add your promotional message",
-                        "header--promo-bar--link": ""
-                    }
-                },
-                "footer": {
-                    "type": "footer",
-                    "blocks": {
-                        "footer--about": {
-                            "type": "about",
-                            "settings": {
-                                "about-title": "Store",
-                                "footer-payment-options-show": true
-                            }
-                        },
-                        "footer--menu": {
-                            "type": "menu",
-                            "settings": {
-                                "menu-title": "Info",
-                                "menu": "footer"
-                            }
-                        },
-                        "footer--subscribe": {
-                            "type": "subscribe",
-                            "settings": {
-                                "newsletter--heading": "<p>Sign up to our mailing list<\/p>",
-                                "subscribe--show-newsletter": true,
-                                "subscribe--show-social-icons": true
-                            }
-                        }
-                    },
-                    "block_order": [
-                        "footer--about",
-                        "footer--menu",
-                        "footer--subscribe"
-                    ],
-                    "settings": {}
-                },
-                "product": {
-                    "type": "product",
-                    "settings": {
-                        "product-breadcrumbs-show": true,
-                        "product-unavailable-form-show": true,
-                        "product-modal-enabled": true,
-                        "product-zoom-enabled": true,
-                        "low-in-stock-amount": 0,
-                        "cart-form-position": "left",
-                        "product-size-chart-enabled": false,
-                        "product-size-chart-option": "size",
-                        "product-size-chart-page-content": "",
-                        "product-share-this-show": true,
-                        "product-share-twitter": true,
-                        "product-share-facebook": true,
-                        "product-share-pinterest": true,
-                        "product-share-tumblr": true
-                    }
-                },
-                "collection": {
-                    "type": "collection",
-                    "settings": {
-                        "collections-breadcrumbs-show": true,
-                        "collections-tags-show": true,
-                        "collections-products-per-row": "4",
-                        "mobile-items-per-row": "2"
-                    }
-                },
-                "1519177052247": {
-                    "type": "slideshow",
-                    "settings": {}
-                },
-                "1519177108222": {
-                    "type": "framework--featured-content",
-                    "settings": {
-                        "full-width": true,
-                        "background-color": "accent",
-                        "text-position": "right",
-                        "text-width": "small",
-                        "overlap": false,
-                        "transparent-overlap": false,
-                        "alternative-color": false,
-                        "image": "",
-                        "title": "Image with text",
-                        "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store<\/p>",
-                        "link-url": "",
-                        "link-text": ""
-                    }
-                },
-                "1519177136360": {
-                    "type": "framework--featured-grid",
-                    "blocks": {
-                        "1519177136360-0": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1519177136360-1": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1519177136360-2": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1519177136360-3": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1521155794713": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1521155797117": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        }
-                    },
-                    "block_order": [
-                        "1519177136360-0",
-                        "1519177136360-1",
-                        "1519177136360-2",
-                        "1519177136360-3",
-                        "1521155794713",
-                        "1521155797117"
-                    ],
-                    "settings": {
-                        "background-color": "none",
-                        "full-width": false,
-                        "spacing": true,
-                        "alternative-color": false,
-                        "text-position": "center",
-                        "width": 3,
-                        "mobile-width": "2",
-                        "title": "Featured grid",
-                        "subtitle": "",
-                        "link-url": "",
-                        "link-text": ""
-                    }
-                },
-                "1519177181912": {
-                    "type": "featured-collection",
-                    "settings": {
-                        "background-color": "none",
-                        "home-product-slider-collection": "",
-                        "max_products": 12
-                    }
-                },
-                "1519177213210": {
-                    "type": "framework--featured-content",
-                    "settings": {
-                        "full-width": true,
-                        "background-color": "light",
-                        "text-position": "center",
-                        "text-width": "large",
-                        "overlap": true,
-                        "transparent-overlap": true,
-                        "alternative-color": false,
-                        "image": "",
-                        "title": "Image with text",
-                        "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store<\/p>",
-                        "link-url": "",
-                        "link-text": ""
-                    }
-                },
-                "1519177316120": {
-                    "type": "framework--newsletter",
-                    "settings": {
-                        "background-color": "none",
-                        "heading": "Subscribe to our newsletter",
-                        "newsletter--subheading": "<p>A short sentence describing what someone will receive by subscribing<\/p>"
-                    }
-                },
-                "1521155965634": {
-                    "type": "framework--featured-text",
-                    "settings": {
-                        "background-color": "none",
-                        "heading": "Talk about your brand",
-                        "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
-                    }
-                },
-                "1521155972652": {
-                    "type": "framework--featured-video",
-                    "settings": {
-                        "background-color": "light",
-                        "heading": "",
-                        "video_url": ""
-                    }
-                },
-                "1521155992953": {
-                    "type": "framework--map",
-                    "settings": {
-                        "api-key": "",
-                        "map-address": "391 Sutter St, San Francisco",
-                        "background-color": "light",
-                        "theme": "grayscale",
-                        "heading": "Map",
-                        "address": "<p>391 Sutter St,<br>San Francisco<br>CA 94108, USA<br><br>(555) 555-5555<\/p>",
-                        "hours": "<p>Monday - Friday<br>10am - 6pm<br><br>Saturday - Sunday<br>12pm - 5pm<\/p>",
-                        "image": ""
-                    }
-                },
-                "1521156071253": {
-                    "type": "framework--featured-content",
-                    "settings": {
-                        "full-width": false,
-                        "background-color": "light",
-                        "text-position": "left",
-                        "text-width": "small",
-                        "overlap": true,
-                        "transparent-overlap": false,
-                        "alternative-color": false,
-                        "image": "",
-                        "title": "Image with text",
-                        "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store<\/p>",
-                        "link-url": "",
-                        "link-text": ""
-                    }
-                },
-                "1530233365157": {
-                    "type": "framework--instagram",
-                    "settings": {
-                        "username": "",
-                        "access-token": "",
-                        "background-color": "none",
-                        "full-width": false,
-                        "spacing": true,
-                        "rows": 2,
-                        "columns": 5,
-                        "heading": "Instagram",
-                        "footer": "Follow @shopify on Instagram"
-                    }
-                }
-            },
-            "content_for_index": [
-                "1519177052247",
-                "1519177181912",
-                "1519177108222",
-                "1519177136360",
-                "1519177213210",
-                "1521155965634",
-                "1521155972652",
-                "1530233365157",
-                "1521156071253",
-                "1521155992953",
-                "1519177316120"
-            ]
-        },
-        "Deli": {
-            "typography--heading": "futura_n4",
-            "typography--heading--uppercase": false,
-            "typography--heading--size": "medium",
-            "typography--accent": "karla_n4",
-            "typography--paragraph": "karla_n4",
-            "typography--paragraph--size": "medium",
-            "color--accent": "#fff8d9",
-            "color-text": "#444444",
-            "color-text-alt": "#999999",
-            "color-page-bg": "#ffffff",
-            "color-panel-bg": "#f7f7f7",
-            "color-border": "#ebebeb",
-            "color-error": "#f66767",
-            "color-button": "#ffffff",
-            "color-button-bg": "#444444",
-            "color-button-bg-hover": "#777777",
-            "color-twitter-tone": "light",
-            "color-header-bg": "#f7f7f7",
-            "color-header": "#444444",
-            "color-header-cart": "#444444",
-            "color-footer-bg": "#f7f7f7",
-            "color-footer": "#333333",
-            "color-slider-caption": "#444444",
-            "color-slider-caption-bg": "#ffffff",
-            "color-slider-button": "#f7f7f7",
-            "color-slider-button-bg": "#444444",
-            "color-slider-button-hover-bg": "#999999",
-            "color-slider-nav": "#444444",
-            "color-product-slider-bg": "#ffffff",
-            "color-featured-promo-bg": "#f7f7f7",
-            "color-social-feed-bg": "#ffffff",
-            "color-grid-sale": "#ffffff",
-            "color-grid-sale-bg": "#444444",
-            "color-grid-sold-out": "#ffffff",
-            "color-grid-sold-out-bg": "#cccccc",
-            "color-product-cart-button": "#f7f7f7",
-            "color-product-cart-button-bg": "#444444",
-            "color-product-cart-button-bg-hover": "#999999",
-            "color-tabs-accordions": "#ebebeb",
-            "sections": {
-                "header": {
-                    "type": "header",
-                    "settings": {
-                        "transparent-menu": false,
-                        "menu": "main-menu",
-                        "header-account-show": true,
-                        "header-menu-center": true,
-                        "header-logo-center": true,
-                        "logo": "",
-                        "logo-height": 35,
-                        "header--promo-bar--show-on": "all",
-                        "header--promo-bar--text": "Add your promotional message",
-                        "header--promo-bar--link": ""
-                    }
-                },
-                "footer": {
-                    "type": "footer",
-                    "blocks": {
-                        "footer--about": {
-                            "type": "about",
-                            "settings": {
-                                "about-title": "Store",
-                                "footer-payment-options-show": true
-                            }
-                        },
-                        "footer--menu": {
-                            "type": "menu",
-                            "settings": {
-                                "menu-title": "Info",
-                                "menu": "footer"
-                            }
-                        },
-                        "footer--subscribe": {
-                            "type": "subscribe",
-                            "settings": {
-                                "newsletter--heading": "<p>Sign up to our mailing list<\/p>",
-                                "subscribe--show-newsletter": true,
-                                "subscribe--show-social-icons": true
-                            }
-                        }
-                    },
-                    "block_order": [
-                        "footer--about",
-                        "footer--menu",
-                        "footer--subscribe"
-                    ],
-                    "settings": {}
-                },
-                "product": {
-                    "type": "product",
-                    "settings": {
-                        "product-breadcrumbs-show": true,
-                        "product-unavailable-form-show": true,
-                        "product-modal-enabled": true,
-                        "product-zoom-enabled": true,
-                        "low-in-stock-amount": 0,
-                        "cart-form-position": "left",
-                        "product-size-chart-enabled": false,
-                        "product-size-chart-option": "size",
-                        "product-size-chart-page-content": "",
-                        "product-share-this-show": true,
-                        "product-share-twitter": true,
-                        "product-share-facebook": true,
-                        "product-share-pinterest": true,
-                        "product-share-tumblr": true
-                    }
-                },
-                "collection": {
-                    "type": "collection",
-                    "settings": {
-                        "collections-breadcrumbs-show": true,
-                        "collections-tags-show": true,
-                        "collections-products-per-row": "4",
-                        "mobile-items-per-row": "2"
-                    }
-                },
-                "1519177052247": {
-                    "type": "slideshow",
-                    "settings": {}
-                },
-                "1519177108222": {
-                    "type": "framework--featured-content",
-                    "settings": {
-                        "full-width": true,
-                        "background-color": "accent",
-                        "text-position": "right",
-                        "text-width": "small",
-                        "overlap": false,
-                        "transparent-overlap": false,
-                        "alternative-color": false,
-                        "image": "",
-                        "title": "Image with text",
-                        "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store<\/p>",
-                        "link-url": "",
-                        "link-text": ""
-                    }
-                },
-                "1519177136360": {
-                    "type": "framework--featured-grid",
-                    "blocks": {
-                        "1519177136360-0": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1519177136360-1": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1519177136360-2": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1519177136360-3": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1521155794713": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        },
-                        "1521155797117": {
-                            "type": "image",
-                            "settings": {
-                                "image": "",
-                                "title": "Grid image",
-                                "link-url": ""
-                            }
-                        }
-                    },
-                    "block_order": [
-                        "1519177136360-0",
-                        "1519177136360-1",
-                        "1519177136360-2",
-                        "1519177136360-3",
-                        "1521155794713",
-                        "1521155797117"
-                    ],
-                    "settings": {
-                        "background-color": "none",
-                        "full-width": false,
-                        "spacing": true,
-                        "alternative-color": false,
-                        "text-position": "center",
-                        "width": 3,
-                        "mobile-width": "2",
-                        "title": "Featured grid",
-                        "subtitle": "",
-                        "link-url": "",
-                        "link-text": ""
-                    }
-                },
-                "1519177181912": {
-                    "type": "featured-collection",
-                    "settings": {
-                        "background-color": "none",
-                        "home-product-slider-collection": "",
-                        "max_products": 12
-                    }
-                },
-                "1519177213210": {
-                    "type": "framework--featured-content",
-                    "settings": {
-                        "full-width": true,
-                        "background-color": "light",
-                        "text-position": "center",
-                        "text-width": "large",
-                        "overlap": true,
-                        "transparent-overlap": true,
-                        "alternative-color": false,
-                        "image": "",
-                        "title": "Image with text",
-                        "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store<\/p>",
-                        "link-url": "",
-                        "link-text": ""
-                    }
-                },
-                "1519177316120": {
-                    "type": "framework--newsletter",
-                    "settings": {
-                        "background-color": "none",
-                        "heading": "Subscribe to our newsletter",
-                        "newsletter--subheading": "<p>A short sentence describing what someone will receive by subscribing<\/p>"
-                    }
-                },
-                "1521155965634": {
-                    "type": "framework--featured-text",
-                    "settings": {
-                        "background-color": "none",
-                        "heading": "Talk about your brand",
-                        "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
-                    }
-                },
-                "1521155972652": {
-                    "type": "framework--featured-video",
-                    "settings": {
-                        "background-color": "light",
-                        "heading": "",
-                        "video_url": ""
-                    }
-                },
-                "1521155992953": {
-                    "type": "framework--map",
-                    "settings": {
-                        "api-key": "",
-                        "map-address": "391 Sutter St, San Francisco",
-                        "background-color": "light",
-                        "theme": "grayscale",
-                        "heading": "Map",
-                        "address": "<p>391 Sutter St,<br>San Francisco<br>CA 94108, USA<br><br>(555) 555-5555<\/p>",
-                        "hours": "<p>Monday - Friday<br>10am - 6pm<br><br>Saturday - Sunday<br>12pm - 5pm<\/p>",
-                        "image": ""
-                    }
-                },
-                "1521156071253": {
-                    "type": "framework--featured-content",
-                    "settings": {
-                        "full-width": false,
-                        "background-color": "light",
-                        "text-position": "left",
-                        "text-width": "small",
-                        "overlap": true,
-                        "transparent-overlap": false,
-                        "alternative-color": false,
-                        "image": "",
-                        "title": "Image with text",
-                        "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store<\/p>",
-                        "link-url": "",
-                        "link-text": ""
-                    }
-                },
-                "1530233365157": {
-                    "type": "framework--instagram",
-                    "settings": {
-                        "username": "",
-                        "access-token": "",
-                        "background-color": "none",
-                        "full-width": false,
-                        "spacing": true,
-                        "rows": 2,
-                        "columns": 5,
-                        "heading": "Instagram",
-                        "footer": "Follow @shopify on Instagram"
-                    }
-                }
-            },
-            "content_for_index": [
-                "1519177052247",
-                "1519177181912",
-                "1519177108222",
-                "1519177136360",
-                "1519177213210",
-                "1521155965634",
-                "1521155972652",
-                "1530233365157",
-                "1521156071253",
-                "1521155992953",
-                "1519177316120"
-            ]
-        }
+    "content_for_index": [
+      "1519177052247",
+      "framework_featured_text_iRV8MD",
+      "1519177181912",
+      "1519177108222",
+      "1519177136360",
+      "1565800782458",
+      "1521155965634",
+      "1521155972652",
+      "1530233365157",
+      "1565800081840",
+      "framework_featured_content_HzQ3zq",
+      "1521156071253",
+      "1521155992953",
+      "1519177316120"
+    ],
+    "blocks": {
+      "1513253815146976218": {
+        "type": "shopify://apps/omnisend-email-marketing-sms/blocks/app-embed/44704aa2-794f-4c5d-8c8e-039c841158e9",
+        "disabled": false,
+        "settings": {}
+      }
     }
+  },
+  "presets": {
+    "Beauty": {
+      "typography--heading": "roboto_n7",
+      "typography--heading--uppercase": true,
+      "typography--heading--size": "small",
+      "typography--accent": "karla_n4",
+      "typography--paragraph": "roboto_n4",
+      "typography--paragraph--size": "medium",
+      "color--accent": "#ffd7d7",
+      "color-text": "#272727",
+      "color-text-alt": "#999999",
+      "color-page-bg": "#ffffff",
+      "color-panel-bg": "#f7f7f7",
+      "color-border": "#ebebeb",
+      "color-error": "#f66767",
+      "color-button": "#ffffff",
+      "color-button-bg": "#272727",
+      "color-button-bg-hover": "#777777",
+      "color-twitter-tone": "light",
+      "color-header-bg": "#ffd7d7",
+      "color-header": "#272727",
+      "color-header-cart": "#272727",
+      "color-footer-bg": "#ffd7d7",
+      "color-footer": "#272727",
+      "color-slider-caption": "#272727",
+      "color-slider-caption-bg": "#ffffff",
+      "color-slider-button": "#f7f7f7",
+      "color-slider-button-bg": "#272727",
+      "color-slider-button-hover-bg": "#474747",
+      "color-slider-nav": "#272727",
+      "color-product-slider-bg": "#ffffff",
+      "color-featured-promo-bg": "#f7f7f7",
+      "color-social-feed-bg": "#ffffff",
+      "color-grid-sale": "#ffffff",
+      "color-grid-sale-bg": "#272727",
+      "color-grid-sold-out": "#ffffff",
+      "color-grid-sold-out-bg": "#cccccc",
+      "color-product-cart-button": "#f7f7f7",
+      "color-product-cart-button-bg": "#272727",
+      "color-product-cart-button-bg-hover": "#474747",
+      "color-tabs-accordions": "#ebebeb",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "transparent-menu": false,
+            "menu": "main-menu",
+            "header-account-show": true,
+            "header-menu-center": true,
+            "header-logo-center": true,
+            "logo": "",
+            "logo-height": 35,
+            "header--promo-bar--show-on": "all",
+            "header--promo-bar--text": "Add your promotional message",
+            "header--promo-bar--link": ""
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer--about": {
+              "type": "about",
+              "settings": {
+                "about-title": "Store",
+                "footer-payment-options-show": true
+              }
+            },
+            "footer--menu": {
+              "type": "menu",
+              "settings": {
+                "menu-title": "Info",
+                "menu": "footer"
+              }
+            },
+            "footer--subscribe": {
+              "type": "subscribe",
+              "settings": {
+                "newsletter--heading": "<p>Sign up to our mailing list</p>",
+                "subscribe--show-newsletter": true,
+                "subscribe--show-social-icons": true
+              }
+            }
+          },
+          "block_order": [
+            "footer--about",
+            "footer--menu",
+            "footer--subscribe"
+          ],
+          "settings": {}
+        },
+        "product": {
+          "type": "product",
+          "settings": {
+            "product-breadcrumbs-show": true,
+            "product-unavailable-form-show": true,
+            "product-modal-enabled": true,
+            "product-zoom-enabled": true,
+            "low-in-stock-amount": 0,
+            "cart-form-position": "left",
+            "product-size-chart-enabled": false,
+            "product-size-chart-option": "size",
+            "product-size-chart-page-content": "",
+            "product-share-this-show": true,
+            "product-share-twitter": true,
+            "product-share-facebook": true,
+            "product-share-pinterest": true,
+            "product-share-tumblr": true
+          }
+        },
+        "collection": {
+          "type": "collection",
+          "settings": {
+            "collections-breadcrumbs-show": true,
+            "collections-tags-show": true,
+            "collections-products-per-row": "4",
+            "mobile-items-per-row": "2"
+          }
+        },
+        "1519177052247": {
+          "type": "slideshow",
+          "settings": {}
+        },
+        "1519177108222": {
+          "type": "framework--featured-content",
+          "settings": {
+            "full-width": true,
+            "background-color": "accent",
+            "text-position": "right",
+            "text-width": "small",
+            "overlap": false,
+            "transparent-overlap": false,
+            "alternative-color": false,
+            "image": "",
+            "title": "Image with text",
+            "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store</p>",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1519177136360": {
+          "type": "framework--featured-grid",
+          "blocks": {
+            "1519177136360-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1519177136360-1": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1519177136360-2": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1519177136360-3": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1521155794713": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1521155797117": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            }
+          },
+          "block_order": [
+            "1519177136360-0",
+            "1519177136360-1",
+            "1519177136360-2",
+            "1519177136360-3",
+            "1521155794713",
+            "1521155797117"
+          ],
+          "settings": {
+            "background-color": "none",
+            "full-width": false,
+            "spacing": true,
+            "alternative-color": false,
+            "text-position": "center",
+            "width": 3,
+            "mobile-width": "2",
+            "title": "Featured grid",
+            "subtitle": "",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1519177181912": {
+          "type": "featured-collection",
+          "settings": {
+            "background-color": "none",
+            "home-product-slider-collection": "",
+            "max_products": 12
+          }
+        },
+        "1519177213210": {
+          "type": "framework--featured-content",
+          "settings": {
+            "full-width": true,
+            "background-color": "light",
+            "text-position": "center",
+            "text-width": "large",
+            "overlap": true,
+            "transparent-overlap": true,
+            "alternative-color": false,
+            "image": "",
+            "title": "Image with text",
+            "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store</p>",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1519177316120": {
+          "type": "framework--newsletter",
+          "settings": {
+            "background-color": "none",
+            "heading": "Subscribe to our newsletter",
+            "newsletter--subheading": "<p>A short sentence describing what someone will receive by subscribing</p>"
+          }
+        },
+        "1521155965634": {
+          "type": "framework--featured-text",
+          "settings": {
+            "background-color": "none",
+            "heading": "Talk about your brand",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "1521155972652": {
+          "type": "framework--featured-video",
+          "settings": {
+            "background-color": "light",
+            "heading": "",
+            "video_url": ""
+          }
+        },
+        "1521155992953": {
+          "type": "framework--map",
+          "settings": {
+            "api-key": "",
+            "map-address": "391 Sutter St, San Francisco",
+            "background-color": "light",
+            "theme": "grayscale",
+            "heading": "Map",
+            "address": "<p>391 Sutter St,<br>San Francisco<br>CA 94108, USA<br><br>(555) 555-5555</p>",
+            "hours": "<p>Monday - Friday<br>10am - 6pm<br><br>Saturday - Sunday<br>12pm - 5pm</p>",
+            "image": ""
+          }
+        },
+        "1521156071253": {
+          "type": "framework--featured-content",
+          "settings": {
+            "full-width": false,
+            "background-color": "light",
+            "text-position": "left",
+            "text-width": "small",
+            "overlap": true,
+            "transparent-overlap": false,
+            "alternative-color": false,
+            "image": "",
+            "title": "Image with text",
+            "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store</p>",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1530233365157": {
+          "type": "framework--instagram",
+          "settings": {
+            "username": "",
+            "access-token": "",
+            "background-color": "none",
+            "full-width": false,
+            "spacing": true,
+            "rows": 2,
+            "columns": 5,
+            "heading": "Instagram",
+            "footer": "Follow @shopify on Instagram"
+          }
+        }
+      },
+      "content_for_index": [
+        "1519177052247",
+        "1519177181912",
+        "1519177108222",
+        "1519177136360",
+        "1519177213210",
+        "1521155965634",
+        "1521155972652",
+        "1530233365157",
+        "1521156071253",
+        "1521155992953",
+        "1519177316120"
+      ]
+    },
+    "Moto": {
+      "typography--heading": "itc_franklin_gothic_n5",
+      "typography--heading--uppercase": true,
+      "typography--heading--size": "small",
+      "typography--accent": "itc_franklin_gothic_n4",
+      "typography--paragraph": "itc_franklin_gothic_n4",
+      "typography--paragraph--size": "medium",
+      "color--accent": "#f2efeb",
+      "color-text": "#212121",
+      "color-text-alt": "#b5b5b5",
+      "color-page-bg": "#ffffff",
+      "color-panel-bg": "#ffffff",
+      "color-border": "#ebebeb",
+      "color-error": "#f66767",
+      "color-button": "#f7f7f7",
+      "color-button-bg": "#313131",
+      "color-button-bg-hover": "#444444",
+      "color-twitter-tone": "light",
+      "color-header-bg": "#212121",
+      "color-header": "#ffffff",
+      "color-header-cart": "#ffffff",
+      "color-footer-bg": "#212121",
+      "color-footer": "#fefefe",
+      "color-slider-caption": "#272727",
+      "color-slider-caption-bg": "#ffffff",
+      "color-slider-button": "#f7f7f7",
+      "color-slider-button-bg": "#313131",
+      "color-slider-button-hover-bg": "#444444",
+      "color-slider-nav": "#444444",
+      "color-product-slider-bg": "#ffffff",
+      "color-featured-promo-bg": "#f7f7f7",
+      "color-social-feed-bg": "#ffffff",
+      "color-grid-sale": "#ffffff",
+      "color-grid-sale-bg": "#313131",
+      "color-grid-sold-out": "#ffffff",
+      "color-grid-sold-out-bg": "#cccccc",
+      "color-product-cart-button": "#f7f7f7",
+      "color-product-cart-button-bg": "#313131",
+      "color-product-cart-button-bg-hover": "#444444",
+      "color-tabs-accordions": "#ebebeb",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "transparent-menu": false,
+            "menu": "main-menu",
+            "header-account-show": true,
+            "header-menu-center": true,
+            "header-logo-center": true,
+            "logo": "",
+            "logo-height": 35,
+            "header--promo-bar--show-on": "all",
+            "header--promo-bar--text": "Add your promotional message",
+            "header--promo-bar--link": ""
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer--about": {
+              "type": "about",
+              "settings": {
+                "about-title": "Store",
+                "footer-payment-options-show": true
+              }
+            },
+            "footer--menu": {
+              "type": "menu",
+              "settings": {
+                "menu-title": "Info",
+                "menu": "footer"
+              }
+            },
+            "footer--subscribe": {
+              "type": "subscribe",
+              "settings": {
+                "newsletter--heading": "<p>Sign up to our mailing list</p>",
+                "subscribe--show-newsletter": true,
+                "subscribe--show-social-icons": true
+              }
+            }
+          },
+          "block_order": [
+            "footer--about",
+            "footer--menu",
+            "footer--subscribe"
+          ],
+          "settings": {}
+        },
+        "product": {
+          "type": "product",
+          "settings": {
+            "product-breadcrumbs-show": true,
+            "product-unavailable-form-show": true,
+            "product-modal-enabled": true,
+            "product-zoom-enabled": true,
+            "low-in-stock-amount": 0,
+            "cart-form-position": "left",
+            "product-size-chart-enabled": false,
+            "product-size-chart-option": "size",
+            "product-size-chart-page-content": "",
+            "product-share-this-show": true,
+            "product-share-twitter": true,
+            "product-share-facebook": true,
+            "product-share-pinterest": true,
+            "product-share-tumblr": true
+          }
+        },
+        "collection": {
+          "type": "collection",
+          "settings": {
+            "collections-breadcrumbs-show": true,
+            "collections-tags-show": true,
+            "collections-products-per-row": "4",
+            "mobile-items-per-row": "2"
+          }
+        },
+        "1519177052247": {
+          "type": "slideshow",
+          "settings": {}
+        },
+        "1519177108222": {
+          "type": "framework--featured-content",
+          "settings": {
+            "full-width": true,
+            "background-color": "accent",
+            "text-position": "right",
+            "text-width": "small",
+            "overlap": false,
+            "transparent-overlap": false,
+            "alternative-color": false,
+            "image": "",
+            "title": "Image with text",
+            "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store</p>",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1519177136360": {
+          "type": "framework--featured-grid",
+          "blocks": {
+            "1519177136360-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1519177136360-1": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1519177136360-2": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1519177136360-3": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1521155794713": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1521155797117": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            }
+          },
+          "block_order": [
+            "1519177136360-0",
+            "1519177136360-1",
+            "1519177136360-2",
+            "1519177136360-3",
+            "1521155794713",
+            "1521155797117"
+          ],
+          "settings": {
+            "background-color": "none",
+            "full-width": false,
+            "spacing": true,
+            "alternative-color": false,
+            "text-position": "center",
+            "width": 3,
+            "mobile-width": "2",
+            "title": "Featured grid",
+            "subtitle": "",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1519177181912": {
+          "type": "featured-collection",
+          "settings": {
+            "background-color": "none",
+            "home-product-slider-collection": "",
+            "max_products": 12
+          }
+        },
+        "1519177213210": {
+          "type": "framework--featured-content",
+          "settings": {
+            "full-width": true,
+            "background-color": "light",
+            "text-position": "center",
+            "text-width": "large",
+            "overlap": true,
+            "transparent-overlap": true,
+            "alternative-color": false,
+            "image": "",
+            "title": "Image with text",
+            "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store</p>",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1519177316120": {
+          "type": "framework--newsletter",
+          "settings": {
+            "background-color": "none",
+            "heading": "Subscribe to our newsletter",
+            "newsletter--subheading": "<p>A short sentence describing what someone will receive by subscribing</p>"
+          }
+        },
+        "1521155965634": {
+          "type": "framework--featured-text",
+          "settings": {
+            "background-color": "none",
+            "heading": "Talk about your brand",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "1521155972652": {
+          "type": "framework--featured-video",
+          "settings": {
+            "background-color": "light",
+            "heading": "",
+            "video_url": ""
+          }
+        },
+        "1521155992953": {
+          "type": "framework--map",
+          "settings": {
+            "api-key": "",
+            "map-address": "391 Sutter St, San Francisco",
+            "background-color": "light",
+            "theme": "grayscale",
+            "heading": "Map",
+            "address": "<p>391 Sutter St,<br>San Francisco<br>CA 94108, USA<br><br>(555) 555-5555</p>",
+            "hours": "<p>Monday - Friday<br>10am - 6pm<br><br>Saturday - Sunday<br>12pm - 5pm</p>",
+            "image": ""
+          }
+        },
+        "1521156071253": {
+          "type": "framework--featured-content",
+          "settings": {
+            "full-width": false,
+            "background-color": "light",
+            "text-position": "left",
+            "text-width": "small",
+            "overlap": true,
+            "transparent-overlap": false,
+            "alternative-color": false,
+            "image": "",
+            "title": "Image with text",
+            "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store</p>",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1530233365157": {
+          "type": "framework--instagram",
+          "settings": {
+            "username": "",
+            "access-token": "",
+            "background-color": "none",
+            "full-width": false,
+            "spacing": true,
+            "rows": 2,
+            "columns": 5,
+            "heading": "Instagram",
+            "footer": "Follow @shopify on Instagram"
+          }
+        }
+      },
+      "content_for_index": [
+        "1519177052247",
+        "1519177181912",
+        "1519177108222",
+        "1519177136360",
+        "1519177213210",
+        "1521155965634",
+        "1521155972652",
+        "1530233365157",
+        "1521156071253",
+        "1521155992953",
+        "1519177316120"
+      ]
+    },
+    "Summer": {
+      "typography--heading": "gill_sans_nova_n4",
+      "typography--heading--uppercase": false,
+      "typography--heading--size": "medium",
+      "typography--accent": "gill_sans_nova_n4",
+      "typography--paragraph": "gill_sans_nova_n4",
+      "typography--paragraph--size": "medium",
+      "color--accent": "#ffe0c8",
+      "color-text": "#444444",
+      "color--alternative": "#ffffff",
+      "color-page-bg": "#ffffff",
+      "color-panel-bg": "#f7f7f7",
+      "color-border": "#ebebeb",
+      "color-error": "#f66767",
+      "color-button": "#ffffff",
+      "color-button-bg": "#444444",
+      "color-header-bg": "#F7F7F7",
+      "color-header": "#444444",
+      "color-header-cart": "#444444",
+      "color-footer-bg": "#f7f7f7",
+      "color-footer": "#333333",
+      "color-slider-caption": "#444444",
+      "color-slider-caption-bg": "#ffffff",
+      "color-slider-button": "#f7f7f7",
+      "color-slider-button-bg": "#444444",
+      "color-slider-button-hover-bg": "#999999",
+      "color-slider-nav": "#444444",
+      "color-grid-sale": "#ffffff",
+      "color-grid-sale-bg": "#444444",
+      "color-grid-sold-out": "#ffffff",
+      "color-grid-sold-out-bg": "#cccccc",
+      "color-tabs-accordions": "#ebebeb",
+      "color-twitter-tone": "light",
+      "color-link": "#999999",
+      "color-link-hover": "#444444",
+      "color-text-alt": "#999999",
+      "color-button-bg-hover": "#777777",
+      "color-product-slider-bg": "#ffffff",
+      "color-featured-promo-bg": "#f7f7f7",
+      "color-social-feed-bg": "#ffffff",
+      "color-product-cart-button": "#f7f7f7",
+      "color-product-cart-button-bg": "#444444",
+      "color-product-cart-button-bg-hover": "#999999",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "transparent-menu": false,
+            "menu": "main-menu",
+            "header-account-show": true,
+            "header-menu-center": true,
+            "header-logo-center": true,
+            "logo": "",
+            "logo-height": 35,
+            "announcement--background-color": "accent",
+            "announcement--alternative-color": false,
+            "header--promo-bar--show-on": "all",
+            "header--promo-bar--text": "Add your promotional message",
+            "header--promo-bar--link": ""
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer--about": {
+              "type": "about",
+              "settings": {
+                "about-title": "Store",
+                "footer-payment-options-show": true
+              }
+            },
+            "footer--menu": {
+              "type": "menu",
+              "settings": {
+                "menu-title": "Info",
+                "menu": "footer"
+              }
+            },
+            "footer--subscribe": {
+              "type": "subscribe",
+              "settings": {
+                "newsletter--heading": "<p>Sign up to our mailing list</p>",
+                "subscribe--show-newsletter": true,
+                "subscribe--show-social-icons": true
+              }
+            }
+          },
+          "block_order": [
+            "footer--about",
+            "footer--menu",
+            "footer--subscribe"
+          ],
+          "settings": {}
+        },
+        "product": {
+          "type": "product",
+          "settings": {
+            "product-breadcrumbs-show": true,
+            "product-unavailable-form-show": true,
+            "product-modal-enabled": true,
+            "product-zoom-enabled": true,
+            "low-in-stock-amount": 0,
+            "cart-form-position": "left",
+            "product-size-chart-enabled": false,
+            "product-size-chart-option": "size",
+            "product-size-chart-page-content": "",
+            "product-share-this-show": true,
+            "product-share-twitter": true,
+            "product-share-facebook": true,
+            "product-share-pinterest": true,
+            "product-share-tumblr": true
+          }
+        },
+        "collection": {
+          "type": "collection",
+          "settings": {
+            "collections-breadcrumbs-show": true,
+            "collections-tags-show": true,
+            "collections-products-per-row": "4",
+            "mobile-items-per-row": "2"
+          }
+        },
+        "1519177052247": {
+          "type": "slideshow",
+          "settings": {}
+        },
+        "1519177108222": {
+          "type": "framework--featured-content",
+          "settings": {
+            "full-width": true,
+            "background-color": "accent",
+            "text-position": "right",
+            "text-width": "small",
+            "overlap": false,
+            "transparent-overlap": false,
+            "alternative-color": false,
+            "image": "",
+            "title": "Image with text",
+            "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store</p>",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1519177136360": {
+          "type": "framework--featured-grid",
+          "blocks": {
+            "1519177136360-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1519177136360-1": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1519177136360-2": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1519177136360-3": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1521155794713": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1521155797117": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            }
+          },
+          "block_order": [
+            "1519177136360-0",
+            "1519177136360-1",
+            "1519177136360-2",
+            "1519177136360-3",
+            "1521155794713",
+            "1521155797117"
+          ],
+          "settings": {
+            "background-color": "none",
+            "full-width": false,
+            "spacing": true,
+            "alternative-color": false,
+            "text-position": "center",
+            "width": 3,
+            "mobile-width": "2",
+            "title": "Featured grid",
+            "subtitle": "",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1519177181912": {
+          "type": "featured-collection",
+          "settings": {
+            "background-color": "none",
+            "home-product-slider-collection": "",
+            "max_products": 12
+          }
+        },
+        "1519177213210": {
+          "type": "framework--featured-content",
+          "settings": {
+            "full-width": true,
+            "background-color": "light",
+            "text-position": "center",
+            "text-width": "large",
+            "overlap": true,
+            "transparent-overlap": true,
+            "alternative-color": false,
+            "image": "",
+            "title": "Image with text",
+            "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store</p>",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1519177316120": {
+          "type": "framework--newsletter",
+          "settings": {
+            "background-color": "none",
+            "heading": "Subscribe to our newsletter",
+            "newsletter--subheading": "<p>A short sentence describing what someone will receive by subscribing</p>"
+          }
+        },
+        "1521155965634": {
+          "type": "framework--featured-text",
+          "settings": {
+            "background-color": "none",
+            "heading": "Talk about your brand",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "1521155972652": {
+          "type": "framework--featured-video",
+          "settings": {
+            "background-color": "light",
+            "heading": "",
+            "video_url": ""
+          }
+        },
+        "1521155992953": {
+          "type": "framework--map",
+          "settings": {
+            "api-key": "",
+            "map-address": "391 Sutter St, San Francisco",
+            "background-color": "light",
+            "theme": "grayscale",
+            "heading": "Map",
+            "address": "<p>391 Sutter St,<br>San Francisco<br>CA 94108, USA<br><br>(555) 555-5555</p>",
+            "hours": "<p>Monday - Friday<br>10am - 6pm<br><br>Saturday - Sunday<br>12pm - 5pm</p>",
+            "image": ""
+          }
+        },
+        "1521156071253": {
+          "type": "framework--featured-content",
+          "settings": {
+            "full-width": false,
+            "background-color": "light",
+            "text-position": "left",
+            "text-width": "small",
+            "overlap": true,
+            "transparent-overlap": false,
+            "alternative-color": false,
+            "image": "",
+            "title": "Image with text",
+            "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store</p>",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1530233365157": {
+          "type": "framework--instagram",
+          "settings": {
+            "username": "",
+            "access-token": "",
+            "background-color": "none",
+            "full-width": false,
+            "spacing": true,
+            "rows": 2,
+            "columns": 5,
+            "heading": "Instagram",
+            "footer": "Follow @shopify on Instagram"
+          }
+        }
+      },
+      "content_for_index": [
+        "1519177052247",
+        "1519177181912",
+        "1519177108222",
+        "1519177136360",
+        "1519177213210",
+        "1521155965634",
+        "1521155972652",
+        "1530233365157",
+        "1521156071253",
+        "1521155992953",
+        "1519177316120"
+      ]
+    },
+    "Deli": {
+      "typography--heading": "futura_n4",
+      "typography--heading--uppercase": false,
+      "typography--heading--size": "medium",
+      "typography--accent": "karla_n4",
+      "typography--paragraph": "karla_n4",
+      "typography--paragraph--size": "medium",
+      "color--accent": "#fff8d9",
+      "color-text": "#444444",
+      "color-text-alt": "#999999",
+      "color-page-bg": "#ffffff",
+      "color-panel-bg": "#f7f7f7",
+      "color-border": "#ebebeb",
+      "color-error": "#f66767",
+      "color-button": "#ffffff",
+      "color-button-bg": "#444444",
+      "color-button-bg-hover": "#777777",
+      "color-twitter-tone": "light",
+      "color-header-bg": "#f7f7f7",
+      "color-header": "#444444",
+      "color-header-cart": "#444444",
+      "color-footer-bg": "#f7f7f7",
+      "color-footer": "#333333",
+      "color-slider-caption": "#444444",
+      "color-slider-caption-bg": "#ffffff",
+      "color-slider-button": "#f7f7f7",
+      "color-slider-button-bg": "#444444",
+      "color-slider-button-hover-bg": "#999999",
+      "color-slider-nav": "#444444",
+      "color-product-slider-bg": "#ffffff",
+      "color-featured-promo-bg": "#f7f7f7",
+      "color-social-feed-bg": "#ffffff",
+      "color-grid-sale": "#ffffff",
+      "color-grid-sale-bg": "#444444",
+      "color-grid-sold-out": "#ffffff",
+      "color-grid-sold-out-bg": "#cccccc",
+      "color-product-cart-button": "#f7f7f7",
+      "color-product-cart-button-bg": "#444444",
+      "color-product-cart-button-bg-hover": "#999999",
+      "color-tabs-accordions": "#ebebeb",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "transparent-menu": false,
+            "menu": "main-menu",
+            "header-account-show": true,
+            "header-menu-center": true,
+            "header-logo-center": true,
+            "logo": "",
+            "logo-height": 35,
+            "header--promo-bar--show-on": "all",
+            "header--promo-bar--text": "Add your promotional message",
+            "header--promo-bar--link": ""
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer--about": {
+              "type": "about",
+              "settings": {
+                "about-title": "Store",
+                "footer-payment-options-show": true
+              }
+            },
+            "footer--menu": {
+              "type": "menu",
+              "settings": {
+                "menu-title": "Info",
+                "menu": "footer"
+              }
+            },
+            "footer--subscribe": {
+              "type": "subscribe",
+              "settings": {
+                "newsletter--heading": "<p>Sign up to our mailing list</p>",
+                "subscribe--show-newsletter": true,
+                "subscribe--show-social-icons": true
+              }
+            }
+          },
+          "block_order": [
+            "footer--about",
+            "footer--menu",
+            "footer--subscribe"
+          ],
+          "settings": {}
+        },
+        "product": {
+          "type": "product",
+          "settings": {
+            "product-breadcrumbs-show": true,
+            "product-unavailable-form-show": true,
+            "product-modal-enabled": true,
+            "product-zoom-enabled": true,
+            "low-in-stock-amount": 0,
+            "cart-form-position": "left",
+            "product-size-chart-enabled": false,
+            "product-size-chart-option": "size",
+            "product-size-chart-page-content": "",
+            "product-share-this-show": true,
+            "product-share-twitter": true,
+            "product-share-facebook": true,
+            "product-share-pinterest": true,
+            "product-share-tumblr": true
+          }
+        },
+        "collection": {
+          "type": "collection",
+          "settings": {
+            "collections-breadcrumbs-show": true,
+            "collections-tags-show": true,
+            "collections-products-per-row": "4",
+            "mobile-items-per-row": "2"
+          }
+        },
+        "1519177052247": {
+          "type": "slideshow",
+          "settings": {}
+        },
+        "1519177108222": {
+          "type": "framework--featured-content",
+          "settings": {
+            "full-width": true,
+            "background-color": "accent",
+            "text-position": "right",
+            "text-width": "small",
+            "overlap": false,
+            "transparent-overlap": false,
+            "alternative-color": false,
+            "image": "",
+            "title": "Image with text",
+            "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store</p>",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1519177136360": {
+          "type": "framework--featured-grid",
+          "blocks": {
+            "1519177136360-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1519177136360-1": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1519177136360-2": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1519177136360-3": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1521155794713": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            },
+            "1521155797117": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Grid image",
+                "link-url": ""
+              }
+            }
+          },
+          "block_order": [
+            "1519177136360-0",
+            "1519177136360-1",
+            "1519177136360-2",
+            "1519177136360-3",
+            "1521155794713",
+            "1521155797117"
+          ],
+          "settings": {
+            "background-color": "none",
+            "full-width": false,
+            "spacing": true,
+            "alternative-color": false,
+            "text-position": "center",
+            "width": 3,
+            "mobile-width": "2",
+            "title": "Featured grid",
+            "subtitle": "",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1519177181912": {
+          "type": "featured-collection",
+          "settings": {
+            "background-color": "none",
+            "home-product-slider-collection": "",
+            "max_products": 12
+          }
+        },
+        "1519177213210": {
+          "type": "framework--featured-content",
+          "settings": {
+            "full-width": true,
+            "background-color": "light",
+            "text-position": "center",
+            "text-width": "large",
+            "overlap": true,
+            "transparent-overlap": true,
+            "alternative-color": false,
+            "image": "",
+            "title": "Image with text",
+            "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store</p>",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1519177316120": {
+          "type": "framework--newsletter",
+          "settings": {
+            "background-color": "none",
+            "heading": "Subscribe to our newsletter",
+            "newsletter--subheading": "<p>A short sentence describing what someone will receive by subscribing</p>"
+          }
+        },
+        "1521155965634": {
+          "type": "framework--featured-text",
+          "settings": {
+            "background-color": "none",
+            "heading": "Talk about your brand",
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "1521155972652": {
+          "type": "framework--featured-video",
+          "settings": {
+            "background-color": "light",
+            "heading": "",
+            "video_url": ""
+          }
+        },
+        "1521155992953": {
+          "type": "framework--map",
+          "settings": {
+            "api-key": "",
+            "map-address": "391 Sutter St, San Francisco",
+            "background-color": "light",
+            "theme": "grayscale",
+            "heading": "Map",
+            "address": "<p>391 Sutter St,<br>San Francisco<br>CA 94108, USA<br><br>(555) 555-5555</p>",
+            "hours": "<p>Monday - Friday<br>10am - 6pm<br><br>Saturday - Sunday<br>12pm - 5pm</p>",
+            "image": ""
+          }
+        },
+        "1521156071253": {
+          "type": "framework--featured-content",
+          "settings": {
+            "full-width": false,
+            "background-color": "light",
+            "text-position": "left",
+            "text-width": "small",
+            "overlap": true,
+            "transparent-overlap": false,
+            "alternative-color": false,
+            "image": "",
+            "title": "Image with text",
+            "description": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store</p>",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1530233365157": {
+          "type": "framework--instagram",
+          "settings": {
+            "username": "",
+            "access-token": "",
+            "background-color": "none",
+            "full-width": false,
+            "spacing": true,
+            "rows": 2,
+            "columns": 5,
+            "heading": "Instagram",
+            "footer": "Follow @shopify on Instagram"
+          }
+        }
+      },
+      "content_for_index": [
+        "1519177052247",
+        "1519177181912",
+        "1519177108222",
+        "1519177136360",
+        "1519177213210",
+        "1521155965634",
+        "1521155972652",
+        "1530233365157",
+        "1521156071253",
+        "1521155992953",
+        "1519177316120"
+      ]
+    }
+  }
 }
