@@ -103,10 +103,10 @@
           "header-logo-center": true,
           "logo": "shopify://shop_images/logoSelectPopcorn.png",
           "logo-height": 100,
-          "announcement--background-color": "accent",
+          "announcement--background-color": "none",
           "announcement--alternative-color": true,
           "header--promo-bar--show-on": "all",
-          "header--promo-bar--text": "Kettle Microwave Popcorn Sale!  $39/case $3.50/box",
+          "header--promo-bar--text": "",
           "header--promo-bar--link": "shopify://collections/microwave"
         }
       },
