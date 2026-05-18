@@ -158,10 +158,10 @@
           "product-size-chart-option": "size",
           "product-size-chart-page-content": "",
           "product-share-this-show": false,
-          "product-share-twitter": true,
-          "product-share-facebook": true,
-          "product-share-pinterest": true,
-          "product-share-tumblr": true
+          "product-share-twitter": false,
+          "product-share-facebook": false,
+          "product-share-pinterest": false,
+          "product-share-tumblr": false
         }
       },
       "collection": {
