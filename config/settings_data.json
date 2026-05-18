@@ -153,7 +153,7 @@
           "product-modal-enabled": true,
           "product-zoom-enabled": true,
           "low-in-stock-amount": 0,
-          "cart-form-position": "left",
+          "cart-form-position": "right",
           "product-size-chart-enabled": false,
           "product-size-chart-option": "size",
           "product-size-chart-page-content": "",
