@@ -19,6 +19,7 @@ var defaultCurrency = '{{ settings.default_currency | default: shop.currency }}'
 /* Cookie currency */
 var cookieCurrency = Currency.cookie.read();
 
+document.addEventListener('DOMContentLoaded', function() {
 jQuery(function($) {
   /* Fix for customer account pages */
   jQuery('span.money span.money').each(function() {
@@ -73,6 +74,7 @@ jQuery(function($) {
   // });
 
   jQuery('.selected-currency').text(Currency.currentCurrency);
+});
 });
 </script>
 

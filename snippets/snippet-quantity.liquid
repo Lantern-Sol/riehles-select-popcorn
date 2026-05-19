@@ -5,16 +5,18 @@
 </div>
 
 <script>
-  jQuery(function($) {
-    $('.qty-minus').on('click', function() {
-      var input = $(this).siblings('input[name="quantity"]');
-      var val = parseInt(input.val()) || 1;
-      if (val > 1) input.val(val - 1).trigger('change');
-    });
-    $('.qty-plus').on('click', function() {
-      var input = $(this).siblings('input[name="quantity"]');
-      var val = parseInt(input.val()) || 1;
-      input.val(val + 1).trigger('change');
+  document.addEventListener('DOMContentLoaded', function() {
+    jQuery(function($) {
+      $('.qty-minus').on('click', function() {
+        var input = $(this).siblings('input[name="quantity"]');
+        var val = parseInt(input.val()) || 1;
+        if (val > 1) input.val(val - 1).trigger('change');
+      });
+      $('.qty-plus').on('click', function() {
+        var input = $(this).siblings('input[name="quantity"]');
+        var val = parseInt(input.val()) || 1;
+        input.val(val + 1).trigger('change');
+      });
     });
   });
 </script>

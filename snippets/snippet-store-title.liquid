@@ -6,10 +6,13 @@
     {% assign alt = section.settings.logo.alt %}
 
     <a href="/" role="banner" title="{{ shop.name }}">
+      {% assign logo_width = section.settings.logo-height | times: key.aspect_ratio | round %}
       <img class="logo-image"
            src="{{ key | img_url: image_height }}"
            srcset="{{ key | img_url: image_height }} 1x,
                    {{ key | img_url: image_height, scale: 2 }} 2x"
+           width="{{ logo_width }}"
+           height="{{ section.settings.logo-height }}"
            alt="{{ alt | default: shop.name }}"
            itemprop="logo">
     </a>
