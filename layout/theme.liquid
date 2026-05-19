@@ -30,11 +30,13 @@
   {% include 'snippet-fb-open-graph-tags' %}
 
   {{ content_for_header }}
-  {% comment %} Bold:POv2 {% endcomment %}
-  {% include 'bold-hybrid' %}
-  {%- include 'bold-product' with product, hide_action: 'header' -%}
-  {%- include 'bold-common' -%}
-{%- render 'sc-includes' -%}
+  {% comment %} Bold:POv2 — only load on product pages {% endcomment %}
+  {% if template contains 'product' %}
+    {% include 'bold-hybrid' %}
+    {%- include 'bold-product' with product, hide_action: 'header' -%}
+    {%- include 'bold-common' -%}
+    {%- render 'sc-includes' -%}
+  {% endif %}
 
   {% include 'framework--css-variables' %}
   {% include 'partial--css-variables' %}
@@ -61,16 +63,16 @@
     window.lazySizesConfig.loadMode = 3;
     window.lazySizesConfig.ricTimeout = 50;
   </script>
-  {{ 'lazysizes.min.js' | asset_url | script_tag }}
+  <script defer src="{{ 'lazysizes.min.js' | asset_url }}"></script>
 
-  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' | script_tag }}
-  {{ '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js' | script_tag }}
-  {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
-  {{ 'option_selection.js' | shopify_asset_url | script_tag }}
+  <script defer src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script defer src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script defer src="{{ 'api.jquery.js' | shopify_asset_url }}"></script>
+  <script defer src="{{ 'option_selection.js' | shopify_asset_url }}"></script>
 
   {% if template contains 'customers' %}
-    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
-    {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
+    <script defer src="{{ 'shopify_common.js' | shopify_asset_url }}"></script>
+    <script defer src="{{ 'customer_area.js'  | shopify_asset_url }}"></script>
   {% endif %}
 
   <script>
@@ -131,12 +133,11 @@
 
   {% include 'snippet-currencies' %}
 
-  {{ "theme.min.js" | asset_url | script_tag }}
+  <script defer src="{{ 'theme.min.js' | asset_url }}"></script>
 
 
 
 
-<!-- BeginShopPopAddon --><script>  Shopify.shopPopSettings = {"proof_enabled":false,"proof_show_add_to_cart":true,"proof_mobile_enabled":true,"proof_mobile_position":"Bottom","proof_desktop_position":"Bottom Left","proof_show_on_product_page":true,"proof_hide_notification_after":30,"proof_display_time":6,"proof_interval_time":5,"proof_order_random":false,"proof_fetch_count":30,"proof_cycle":true,"proof_anonymize":true,"proof_anonymize_text":null,"proof_hours_before_obscure":48,"proof_sequential":true,"proof_top":10,"proof_left":10,"proof_right":10,"proof_bottom":10,"proof_background_color":"#FFFFFF","proof_font_color":"#000000","proof_custom_css":null,"proof_border_radius":40,"proof_first_interval_time":1,"proof_locale":"en"};</script><!-- EndShopPopAddon -->
 </head>
 
 <body class="page-{{ page_title | handle }} {% if customer %}customer-logged-in {% endif %}template-{{ template | split: '.' | first | remove: '/' | remove: '_' }}">
