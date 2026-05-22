@@ -98,7 +98,8 @@
                     {%
                       include 'framework--image',
                       image: image,
-                      preload: true
+                      preload: true,
+                      eager: active_image
                     %}
                   </div>
 
@@ -291,68 +292,72 @@
     }
   };
 
-  jQuery(function($) {
-    function setOptionSelectors() {
-      new Shopify.OptionSelectors("variant-listbox", {
-        product: {{ product | json }},
-        onVariantSelected: selectCallback,
-        enableHistoryState: true
-      });
-    }
+  document.addEventListener('DOMContentLoaded', function() {
+    jQuery(function($) {
+      function setOptionSelectors() {
+        new Shopify.OptionSelectors("variant-listbox", {
+          product: {{ product | json }},
+          onVariantSelected: selectCallback,
+          enableHistoryState: true
+        });
+      }
 
-    setOptionSelectors();
+      setOptionSelectors();
+    });
   });
 </script>
 
 {% if product.images.size > 1 %}
 <script>
-  jQuery(function($) {
-    var $root = $('.product-page--root');
-    var $images = $root.find('.product-page--image');
-    var $thumbs = $root.find('.product-page--thumb');
-    var $zoomImages = $root.find('.product-page--zoom-image');
+  document.addEventListener('DOMContentLoaded', function() {
+    jQuery(function($) {
+      var $root = $('.product-page--root');
+      var $images = $root.find('.product-page--image');
+      var $thumbs = $root.find('.product-page--thumb');
+      var $zoomImages = $root.find('.product-page--zoom-image');
 
-    function switchImage(direction) {
-      var $active = $images.filter('[data-active="true"]');
-      var currentIndex = $images.index($active);
-      var nextIndex;
+      function switchImage(direction) {
+        var $active = $images.filter('[data-active="true"]');
+        var currentIndex = $images.index($active);
+        var nextIndex;
 
-      if (direction === 'next') {
-        nextIndex = (currentIndex + 1) % $images.length;
-      } else {
-        nextIndex = (currentIndex - 1 + $images.length) % $images.length;
+        if (direction === 'next') {
+          nextIndex = (currentIndex + 1) % $images.length;
+        } else {
+          nextIndex = (currentIndex - 1 + $images.length) % $images.length;
+        }
+
+        var nextId = $images.eq(nextIndex).attr('data-id');
+
+        // Hide all zoom images immediately
+        $zoomImages.css('display', 'none');
+
+        $images.attr('data-active', 'false');
+        $images.eq(nextIndex).attr('data-active', 'true');
+
+        $zoomImages.attr('data-active', 'false');
+        $zoomImages.filter('[data-id="' + nextId + '"]').attr('data-active', 'true');
+
+        $thumbs.attr('data-active', 'false');
+        $thumbs.filter('[data-id="' + nextId + '"]').attr('data-active', 'true');
+
+        // Re-initialize zoom for the new active image
+        if (theme.partials.ProductPage && theme.partials.ProductPage.imageZoom) {
+          theme.partials.ProductPage.imageZoom();
+        }
       }
 
-      var nextId = $images.eq(nextIndex).attr('data-id');
+      $root.on('click', '.product-page--arrow-prev', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        switchImage('prev');
+      });
 
-      // Hide all zoom images immediately
-      $zoomImages.css('display', 'none');
-
-      $images.attr('data-active', 'false');
-      $images.eq(nextIndex).attr('data-active', 'true');
-
-      $zoomImages.attr('data-active', 'false');
-      $zoomImages.filter('[data-id="' + nextId + '"]').attr('data-active', 'true');
-
-      $thumbs.attr('data-active', 'false');
-      $thumbs.filter('[data-id="' + nextId + '"]').attr('data-active', 'true');
-
-      // Re-initialize zoom for the new active image
-      if (theme.partials.ProductPage && theme.partials.ProductPage.imageZoom) {
-        theme.partials.ProductPage.imageZoom();
-      }
-    }
-
-    $root.on('click', '.product-page--arrow-prev', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      switchImage('prev');
-    });
-
-    $root.on('click', '.product-page--arrow-next', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      switchImage('next');
+      $root.on('click', '.product-page--arrow-next', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        switchImage('next');
+      });
     });
   });
 </script>
@@ -367,30 +372,32 @@
 </div>
 
 <script>
-  jQuery(function($) {
-    var $lightbox = $('#product-lightbox');
-    var $img = $lightbox.find('img');
-    var imageExts = /\.(jpg|jpeg|png|gif|webp)(\?|$)/i;
+  document.addEventListener('DOMContentLoaded', function() {
+    jQuery(function($) {
+      var $lightbox = $('#product-lightbox');
+      var $img = $lightbox.find('img');
+      var imageExts = /\.(jpg|jpeg|png|gif|webp)(\?|$)/i;
 
-    $('.product-page--description .rte-content').on('click', 'a', function(e) {
-      var href = $(this).attr('href');
-      if (href && imageExts.test(href)) {
-        e.preventDefault();
-        $img.attr('src', href);
-        $lightbox.addClass('active');
-      }
-    });
+      $('.product-page--description .rte-content').on('click', 'a', function(e) {
+        var href = $(this).attr('href');
+        if (href && imageExts.test(href)) {
+          e.preventDefault();
+          $img.attr('src', href);
+          $lightbox.addClass('active');
+        }
+      });
 
-    $lightbox.on('click', '.product-lightbox--overlay, .product-lightbox--close', function() {
-      $lightbox.removeClass('active');
-      $img.attr('src', '');
-    });
-
-    $(document).on('keydown', function(e) {
-      if (e.key === 'Escape' && $lightbox.hasClass('active')) {
+      $lightbox.on('click', '.product-lightbox--overlay, .product-lightbox--close', function() {
         $lightbox.removeClass('active');
         $img.attr('src', '');
-      }
+      });
+
+      $(document).on('keydown', function(e) {
+        if (e.key === 'Escape' && $lightbox.hasClass('active')) {
+          $lightbox.removeClass('active');
+          $img.attr('src', '');
+        }
+      });
     });
   });
 </script>
