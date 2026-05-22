@@ -71,14 +71,6 @@
       {% if product.images.size > 0 %}
         <div class="product-page--images">
           <div class="product-page--images-container">
-            {% if product.images.size > 1 %}
-              <button type="button" class="product-page--arrow product-page--arrow-prev" aria-label="Previous image">
-                {% include 'snippet-symbol' with 'arrow-left' %}
-              </button>
-              <button type="button" class="product-page--arrow product-page--arrow-next" aria-label="Next image">
-                {% include 'snippet-symbol' with 'arrow-right' %}
-              </button>
-            {% endif %}
             <div class="modal--root" data-js-class="FrameworkModal">
 
               {% for image in product.images %}
