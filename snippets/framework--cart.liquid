@@ -369,23 +369,56 @@
 
 <script>
   (function() {
-    if (window.__cartTimerInit) return;
-    window.__cartTimerInit = true;
+    function initCartTimer() {
+      var els = document.querySelectorAll('.cart--timer--countdown');
+      if (!els.length) {
+        sessionStorage.removeItem('cart_timer_expiry');
+        return;
+      }
 
-    document.addEventListener('DOMContentLoaded', function() {
-      var totalSeconds = 10 * 60;
+      if (window.cartTimerInterval) {
+        clearInterval(window.cartTimerInterval);
+      }
 
-      setInterval(function() {
-        totalSeconds--;
-        if (totalSeconds <= 0) totalSeconds = 0;
+      var minutes = parseInt(els[0].getAttribute('data-minutes'), 10) || 10;
+      var now = Math.floor(Date.now() / 1000);
+      var expiry = sessionStorage.getItem('cart_timer_expiry');
+
+      if (!expiry) {
+        expiry = now + (minutes * 60);
+        sessionStorage.setItem('cart_timer_expiry', expiry);
+      } else {
+        expiry = parseInt(expiry, 10);
+      }
+
+      var totalSeconds = expiry - now;
+
+      function updateTimer() {
+        if (totalSeconds <= 0) {
+          clearInterval(window.cartTimerInterval);
+          totalSeconds = 0;
+          sessionStorage.removeItem('cart_timer_expiry');
+        }
         var m = Math.floor(totalSeconds / 60);
         var s = totalSeconds % 60;
         var text = m + ':' + (s < 10 ? '0' : '') + s;
-        var els = document.querySelectorAll('.cart--timer--countdown');
         for (var i = 0; i < els.length; i++) {
           els[i].textContent = text;
         }
+      }
+
+      updateTimer();
+
+      window.cartTimerInterval = setInterval(function() {
+        totalSeconds--;
+        updateTimer();
       }, 1000);
-    });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCartTimer);
+    } else {
+      initCartTimer();
+    }
   })();
 </script>
