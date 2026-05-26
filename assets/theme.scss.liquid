@@ -9457,24 +9457,24 @@ html.no-cssgrid .template-product .border-decoration {
   }
 
   .sticky-atc-bar--product-info {
-    width: 100%;
-  }
-
-  .sticky-atc-bar--title {
-    max-width: 200px;
+    display: none;
   }
 
   .sticky-atc-bar--actions {
     width: 100%;
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
   }
 
   .sticky-atc-bar--qty {
-    width: 100%;
+    width: 100px;
+    flex-shrink: 0;
   }
 
   .sticky-atc-bar--add-btn {
-    width: 100%;
+    flex: 1;
+    width: auto;
   }
 }
 

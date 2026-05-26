@@ -271,7 +271,7 @@
         <input type="number" class="sticky-qty-input" min="1" value="1" aria-label="Quantity" />
         <button type="button" class="qty-btn sticky-qty-plus" aria-label="Increase quantity">+</button>
       </div>
-      <button type="button" class="sticky-atc-bar--add-btn font--button" id="sticky-add-btn">Add to Cart - <span class="actual-price-sticky money"></span></button>
+      <button type="button" class="sticky-atc-bar--add-btn font--button" id="sticky-add-btn">{{ 'products.add_to_cart' | t }} - <span class="actual-price-sticky money"></span></button>
     </div>
   </div>
 </div>
@@ -305,20 +305,13 @@
       } else {
         jQuery('.compare-price').removeAttr('data-unit-compare-price');
       }
-      var qty = parseInt(jQuery('input[name="quantity"]').val()) || 1;
-      updateDisplayedPrice(qty);
-      // Update sticky bar availability
-      var stickyBar = document.getElementById('sticky-atc-bar');
+      // Update sticky bar availability first so updateDisplayedPrice renders the correct state
       var stickyBtn = document.getElementById('sticky-add-btn');
       if (stickyBtn) {
-        if (variant.available) {
-          stickyBtn.disabled = false;
-          stickyBtn.textContent = {{ 'products.add_to_cart' | t | json }};
-        } else {
-          stickyBtn.disabled = true;
-          stickyBtn.textContent = {{ 'products.sold_out' | t | json }};
-        }
+        stickyBtn.disabled = !variant.available;
       }
+      var qty = parseInt(jQuery('input[name="quantity"]').val()) || 1;
+      updateDisplayedPrice(qty);
     }
   };
 
@@ -347,11 +340,7 @@
   });
 
   // --- Quantity-based pricing + Sticky Add-to-Cart ---
-  // DEBUG: remove these console.logs after confirming everything works
-  console.log('[STICKY-DEBUG] Script loaded');
-  var _moneyFmt = typeof shop_money_format !== 'undefined' ? shop_money_format
-                : (typeof Shopify !== 'undefined' && Shopify.money_format ? Shopify.money_format : {{ shop.money_format | json }});
-  console.log('[STICKY-DEBUG] _moneyFmt:', _moneyFmt);
+  var _moneyFmt = (typeof Shopify !== 'undefined' && Shopify.money_format) ? Shopify.money_format : {{ shop.money_format | json }};
 
   function getCurrentQty() {
     return parseInt(jQuery('input[name="quantity"]').val(), 10) || 1;
@@ -361,25 +350,23 @@
     if (typeof qty === 'undefined') qty = getCurrentQty();
     var $actualPrice = jQuery('.actual-price');
     var unitPrice = parseInt($actualPrice.attr('data-unit-price'), 10);
-    console.log('[STICKY-DEBUG] updateDisplayedPrice called — qty:', qty, 'unitPrice:', unitPrice, 'data-unit-price attr:', $actualPrice.attr('data-unit-price'), '.actual-price count:', $actualPrice.length);
-    if (!unitPrice || unitPrice <= 0) {
-      console.log('[STICKY-DEBUG] EARLY RETURN — unitPrice is falsy or <= 0');
-      return;
-    }
+    if (!unitPrice || unitPrice <= 0) return;
 
     var totalPrice = unitPrice * qty;
     var formattedPrice = (typeof Shopify !== 'undefined' && Shopify.formatMoney)
       ? Shopify.formatMoney(totalPrice, _moneyFmt)
       : '$' + (totalPrice / 100).toFixed(2);
-    console.log('[STICKY-DEBUG] totalPrice:', totalPrice, 'formattedPrice:', formattedPrice);
 
     $actualPrice.html(formattedPrice);
 
     // Update sticky bar button — always rewrite full content since theme JS may overwrite it
     var $stickyBtn = jQuery('#sticky-add-btn');
     if ($stickyBtn.length) {
-      $stickyBtn.html('Add to Cart - <span class="actual-price-sticky money">' + formattedPrice + '</span>');
-      console.log('[STICKY-DEBUG] Sticky btn updated to:', $stickyBtn.html());
+      if ($stickyBtn.prop('disabled')) {
+        $stickyBtn.html({{ 'products.sold_out' | t | json }});
+      } else {
+        $stickyBtn.html({{ 'products.add_to_cart' | t | json }} + ' - <span class="actual-price-sticky money">' + formattedPrice + '</span>');
+      }
     }
 
     // Update compare price if applicable
@@ -404,13 +391,8 @@
 
   document.addEventListener('DOMContentLoaded', function() {
     jQuery(function($) {
-      console.log('[STICKY-DEBUG] DOMContentLoaded fired');
-      console.log('[STICKY-DEBUG] sticky bar exists:', !!document.getElementById('sticky-atc-bar'));
-      console.log('[STICKY-DEBUG] sticky btn exists:', !!document.getElementById('sticky-add-btn'));
-      console.log('[STICKY-DEBUG] sticky btn innerHTML:', document.getElementById('sticky-add-btn') ? document.getElementById('sticky-add-btn').innerHTML : 'N/A');
       // Initialize sticky bar price on load
       var initialQty = getCurrentQty();
-      console.log('[STICKY-DEBUG] initialQty:', initialQty);
       updateDisplayedPrice(initialQty);
 
       // Listen for quantity changes (custom event from snippet-quantity)
@@ -418,13 +400,6 @@
         var qty = e.detail.quantity;
         updateDisplayedPrice(qty);
         // Sync to sticky bar qty input
-        $('.sticky-qty-input').val(qty);
-      });
-
-      // Direct fallback: also listen for change/input on main qty input
-      $(document).on('input change', '#quantity', function() {
-        var qty = parseInt($(this).val(), 10) || 1;
-        updateDisplayedPrice(qty);
         $('.sticky-qty-input').val(qty);
       });
 
