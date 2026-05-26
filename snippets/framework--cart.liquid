@@ -24,12 +24,6 @@
 >
   <div class="cart--header">
     <h1 class="cart--title font--section-heading">{{ your_cart_t }}</h1>
-    {% if has_items %}
-      <div class="cart--timer" aria-live="polite" aria-label="Cart reservation timer">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span class="cart--timer--text">Your cart is reserved for <strong class="cart--timer--countdown" data-minutes="10">10:00</strong></span>
-      </div>
-    {% endif %}
   </div>
   <form  class="cart--form" action="/cart" method="post" novalidate="">
 
@@ -346,13 +340,19 @@
         </div>
 
         <div class="cart--nav">
+          {% if has_items %}
+            <div class="cart--timer" aria-live="polite" aria-label="Cart reservation timer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true" focusable="false"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+              <span class="cart--timer--text">Your cart is reserved for <strong class="cart--timer--countdown" data-minutes="10">10:00</strong></span>
+            </div>
+          {% endif %}
           <button class="cart--checkout-button font--button" type="submit" name="checkout">
             {{ checkout_t }}
           </button>
         </div>
       </div>
 
-      {% if has_items %}
+      {% if has_items and template == 'cart' %}
         <div class="cart--closing">
           <div class="cart--closing--image">
             {%- comment -%} Replace placeholder with provided asset when available {%- endcomment -%}
