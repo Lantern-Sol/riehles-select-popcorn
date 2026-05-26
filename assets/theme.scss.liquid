@@ -9310,6 +9310,174 @@ html.no-cssgrid .template-product .border-decoration {
   padding-top: 30px;
 }
 
+/* Sticky Add-to-Cart Bar */
+.sticky-atc-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: {{ settings.bg-color | default: '#fff' }};
+  border-top: 1px solid {{ settings.border-color | default: '#e5e5e5' }};
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  padding: 12px 20px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.sticky-atc-bar.is-visible {
+  transform: translateY(0);
+}
+
+.sticky-atc-bar--inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.sticky-atc-bar--product-info {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 12px;
+}
+
+.sticky-atc-bar--img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.sticky-atc-bar--title {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}
+
+.sticky-atc-bar--add-btn .actual-price-sticky {
+  font-weight: 600;
+}
+
+.sticky-atc-bar--actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.sticky-atc-bar--qty {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-text);
+  height: 44px;
+  min-width: 100px;
+}
+
+.sticky-atc-bar--qty .qty-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0 12px;
+  height: 100%;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+}
+
+.sticky-atc-bar--qty .qty-btn:hover {
+  opacity: 0.7;
+}
+
+.sticky-atc-bar--qty .sticky-qty-input {
+  margin: 0;
+  border: none;
+  text-align: center;
+  flex: 1;
+  height: 100%;
+  font-size: 14px;
+  padding: 0;
+  width: 40px;
+  -moz-appearance: textfield;
+  background: transparent;
+}
+
+.sticky-atc-bar--qty .sticky-qty-input::-webkit-outer-spin-button,
+.sticky-atc-bar--qty .sticky-qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.sticky-atc-bar--add-btn {
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 12px 24px;
+  background: #ffd814 !important;
+  gap: 5px;
+  color: #000 !important;
+  border: 1px solid #ffd814 !important;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 0;
+  transition: background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1;
+  min-height: 44px;
+}
+
+.sticky-atc-bar--add-btn:hover {
+  background: #e6c300 !important;
+  border-color: #e6c300 !important;
+}
+
+.sticky-atc-bar--add-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media only screen and (max-width: 767px) {
+  .sticky-atc-bar {
+    padding: 10px 15px;
+  }
+
+  .sticky-atc-bar--inner {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .sticky-atc-bar--product-info {
+    width: 100%;
+  }
+
+  .sticky-atc-bar--title {
+    max-width: 200px;
+  }
+
+  .sticky-atc-bar--actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .sticky-atc-bar--qty {
+    width: 100%;
+  }
+
+  .sticky-atc-bar--add-btn {
+    width: 100%;
+  }
+}
+
 .product-lightbox {
   display: none;
   position: fixed;

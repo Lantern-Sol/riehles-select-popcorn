@@ -17,6 +17,10 @@
         var val = parseInt(input.val()) || 1;
         input.val(val + 1).trigger('change');
       });
+      $(document).on('change', 'input[name="quantity"]', function() {
+        var qty = parseInt($(this).val()) || 1;
+        document.dispatchEvent(new CustomEvent('quantity:changed', { detail: { quantity: qty } }));
+      });
     });
   });
 </script>

@@ -180,7 +180,7 @@
 
               <p class="price--container">
                 {% assign variant = product.selected_or_first_available_variant %}
-                <span class="actual-price font--accent money">{{ variant.price | money }}</span>&nbsp;<span class="compare-price">{% if variant.price < variant.compare_at_price %}<span class="money font--light-accent">{{ variant.compare_at_price | money }}</span>{% endif %}</span>
+                <span class="actual-price font--accent money" data-unit-price="{{ variant.price }}">{{ variant.price | money }}</span>&nbsp;<span class="compare-price" {% if variant.compare_at_price > variant.price %}data-unit-compare-price="{{ variant.compare_at_price }}"{% endif %}>{% if variant.price < variant.compare_at_price %}<span class="money font--light-accent">{{ variant.compare_at_price | money }}</span>{% endif %}</span>
               </p>
             </div>
           </div>
@@ -259,6 +259,23 @@
 
 </div> <!-- .product-page -->
 
+<div class="sticky-atc-bar" id="sticky-atc-bar">
+  <div class="sticky-atc-bar--inner">
+    <div class="sticky-atc-bar--product-info">
+      <img class="sticky-atc-bar--img" src="{{ product.featured_image | img_url: '60x60', crop: 'center' }}" alt="{{ product.title | escape }}" width="50" height="50" />
+      <span class="sticky-atc-bar--title">{{ product.title }}</span>
+    </div>
+    <div class="sticky-atc-bar--actions">
+      <div class="sticky-atc-bar--qty">
+        <button type="button" class="qty-btn sticky-qty-minus" aria-label="Decrease quantity">−</button>
+        <input type="number" class="sticky-qty-input" min="1" value="1" aria-label="Quantity" />
+        <button type="button" class="qty-btn sticky-qty-plus" aria-label="Increase quantity">+</button>
+      </div>
+      <button type="button" class="sticky-atc-bar--add-btn font--button" id="sticky-add-btn">Add to Cart - <span class="actual-price-sticky money"></span></button>
+    </div>
+  </div>
+</div>
+
 {% if section.settings.product-share-this-show %}
   <section class="row social-share">
     <div class="columns">
@@ -279,7 +296,30 @@
 
   var selectCallback = function(variant, selector) {
     theme.partials.ProductPage.variantSelected(variant, selector);
-    // add your selectCallback code here...
+    // After theme.js replaces .actual-price, re-apply data attributes and recalculate
+    if (variant) {
+      var $actualPrice = jQuery('.actual-price');
+      $actualPrice.attr('data-unit-price', variant.price);
+      if (variant.compare_at_price > variant.price) {
+        jQuery('.compare-price').attr('data-unit-compare-price', variant.compare_at_price);
+      } else {
+        jQuery('.compare-price').removeAttr('data-unit-compare-price');
+      }
+      var qty = parseInt(jQuery('input[name="quantity"]').val()) || 1;
+      updateDisplayedPrice(qty);
+      // Update sticky bar availability
+      var stickyBar = document.getElementById('sticky-atc-bar');
+      var stickyBtn = document.getElementById('sticky-add-btn');
+      if (stickyBtn) {
+        if (variant.available) {
+          stickyBtn.disabled = false;
+          stickyBtn.textContent = {{ 'products.add_to_cart' | t | json }};
+        } else {
+          stickyBtn.disabled = true;
+          stickyBtn.textContent = {{ 'products.sold_out' | t | json }};
+        }
+      }
+    }
   };
 
   theme.products = {
@@ -303,6 +343,148 @@
       }
 
       setOptionSelectors();
+    });
+  });
+
+  // --- Quantity-based pricing + Sticky Add-to-Cart ---
+  // DEBUG: remove these console.logs after confirming everything works
+  console.log('[STICKY-DEBUG] Script loaded');
+  var _moneyFmt = typeof shop_money_format !== 'undefined' ? shop_money_format
+                : (typeof Shopify !== 'undefined' && Shopify.money_format ? Shopify.money_format : {{ shop.money_format | json }});
+  console.log('[STICKY-DEBUG] _moneyFmt:', _moneyFmt);
+
+  function getCurrentQty() {
+    return parseInt(jQuery('input[name="quantity"]').val(), 10) || 1;
+  }
+
+  function updateDisplayedPrice(qty) {
+    if (typeof qty === 'undefined') qty = getCurrentQty();
+    var $actualPrice = jQuery('.actual-price');
+    var unitPrice = parseInt($actualPrice.attr('data-unit-price'), 10);
+    console.log('[STICKY-DEBUG] updateDisplayedPrice called — qty:', qty, 'unitPrice:', unitPrice, 'data-unit-price attr:', $actualPrice.attr('data-unit-price'), '.actual-price count:', $actualPrice.length);
+    if (!unitPrice || unitPrice <= 0) {
+      console.log('[STICKY-DEBUG] EARLY RETURN — unitPrice is falsy or <= 0');
+      return;
+    }
+
+    var totalPrice = unitPrice * qty;
+    var formattedPrice = (typeof Shopify !== 'undefined' && Shopify.formatMoney)
+      ? Shopify.formatMoney(totalPrice, _moneyFmt)
+      : '$' + (totalPrice / 100).toFixed(2);
+    console.log('[STICKY-DEBUG] totalPrice:', totalPrice, 'formattedPrice:', formattedPrice);
+
+    $actualPrice.html(formattedPrice);
+
+    // Update sticky bar button — always rewrite full content since theme JS may overwrite it
+    var $stickyBtn = jQuery('#sticky-add-btn');
+    if ($stickyBtn.length) {
+      $stickyBtn.html('Add to Cart - <span class="actual-price-sticky money">' + formattedPrice + '</span>');
+      console.log('[STICKY-DEBUG] Sticky btn updated to:', $stickyBtn.html());
+    }
+
+    // Update compare price if applicable
+    var $comparePrice = jQuery('.compare-price');
+    var unitCompare = parseInt($comparePrice.attr('data-unit-compare-price'), 10);
+    if (unitCompare && unitCompare > unitPrice) {
+      var totalCompare = unitCompare * qty;
+      var formattedCompare = (typeof Shopify !== 'undefined' && Shopify.formatMoney)
+        ? Shopify.formatMoney(totalCompare, _moneyFmt)
+        : '$' + (totalCompare / 100).toFixed(2);
+      $comparePrice.html('<span class="money font--light-accent">' + formattedCompare + '</span>');
+    }
+
+    // Re-run currency conversion if enabled
+    if (typeof Currency !== 'undefined' && typeof shopCurrency !== 'undefined') {
+      var selectedCurrency = jQuery('[name=currencies]').val();
+      if (selectedCurrency && selectedCurrency !== shopCurrency) {
+        Currency.convertAll(shopCurrency, selectedCurrency);
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    jQuery(function($) {
+      console.log('[STICKY-DEBUG] DOMContentLoaded fired');
+      console.log('[STICKY-DEBUG] sticky bar exists:', !!document.getElementById('sticky-atc-bar'));
+      console.log('[STICKY-DEBUG] sticky btn exists:', !!document.getElementById('sticky-add-btn'));
+      console.log('[STICKY-DEBUG] sticky btn innerHTML:', document.getElementById('sticky-add-btn') ? document.getElementById('sticky-add-btn').innerHTML : 'N/A');
+      // Initialize sticky bar price on load
+      var initialQty = getCurrentQty();
+      console.log('[STICKY-DEBUG] initialQty:', initialQty);
+      updateDisplayedPrice(initialQty);
+
+      // Listen for quantity changes (custom event from snippet-quantity)
+      document.addEventListener('quantity:changed', function(e) {
+        var qty = e.detail.quantity;
+        updateDisplayedPrice(qty);
+        // Sync to sticky bar qty input
+        $('.sticky-qty-input').val(qty);
+      });
+
+      // Direct fallback: also listen for change/input on main qty input
+      $(document).on('input change', '#quantity', function() {
+        var qty = parseInt($(this).val(), 10) || 1;
+        updateDisplayedPrice(qty);
+        $('.sticky-qty-input').val(qty);
+      });
+
+      // Sticky bar quantity buttons
+      $('.sticky-qty-minus').on('click', function() {
+        var $input = $('.sticky-qty-input');
+        var val = parseInt($input.val()) || 1;
+        if (val > 1) {
+          val--;
+          $input.val(val);
+          // Sync to main qty input and trigger update
+          $('input[name="quantity"]').val(val).trigger('change');
+        }
+      });
+
+      $('.sticky-qty-plus').on('click', function() {
+        var $input = $('.sticky-qty-input');
+        var val = parseInt($input.val()) || 1;
+        val++;
+        $input.val(val);
+        $('input[name="quantity"]').val(val).trigger('change');
+      });
+
+      // Sticky bar qty input direct change
+      $('.sticky-qty-input').on('change', function() {
+        var val = parseInt($(this).val()) || 1;
+        if (val < 1) val = 1;
+        $(this).val(val);
+        $('input[name="quantity"]').val(val).trigger('change');
+      });
+
+      // Sticky bar add-to-cart triggers main form submit
+      $('#sticky-add-btn').on('click', function() {
+        var $mainAddBtn = $('button[name="add"]#add');
+        if ($mainAddBtn.length && !$(this).prop('disabled')) {
+          $mainAddBtn.trigger('click');
+        }
+      });
+
+      // IntersectionObserver to show/hide sticky bar
+      var stickyBar = document.getElementById('sticky-atc-bar');
+      var mainAddBtn = document.querySelector('button[name="add"]#add');
+
+      if (stickyBar && mainAddBtn) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              stickyBar.classList.remove('is-visible');
+            } else {
+              // Only show if product is available
+              var addBtn = document.querySelector('button[name="add"]#add');
+              if (addBtn && !addBtn.disabled) {
+                stickyBar.classList.add('is-visible');
+              }
+            }
+          });
+        }, { threshold: 0 });
+
+        observer.observe(mainAddBtn);
+      }
     });
   });
 </script>
