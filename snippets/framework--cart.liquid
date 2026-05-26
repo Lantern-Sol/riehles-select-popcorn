@@ -24,6 +24,12 @@
 >
   <div class="cart--header">
     <h1 class="cart--title font--section-heading">{{ your_cart_t }}</h1>
+    {% if has_items %}
+      <div class="cart--timer" aria-live="polite" aria-label="Cart reservation timer">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span class="cart--timer--text">Your cart is reserved for <strong class="cart--timer--countdown" data-minutes="10">10:00</strong></span>
+      </div>
+    {% endif %}
   </div>
   <form  class="cart--form" action="/cart" method="post" novalidate="">
 
@@ -340,19 +346,44 @@
         </div>
 
         <div class="cart--nav">
-          <div class="cart--continue-shopping font--block-link">
-            <a href="{{ shop.url }}/collections/all">
-              {{ continue_t }}
-            </a>
-          </div>
-
           <button class="cart--checkout-button font--button" type="submit" name="checkout">
             {{ checkout_t }}
           </button>
         </div>
       </div>
+
+      {% if has_items %}
+        <div class="cart--closing">
+          <div class="cart--closing--image">
+            {%- comment -%} Replace placeholder with provided asset when available {%- endcomment -%}
+            <img src="{{ 'cart-thank-you.jpg' | asset_url }}" alt="Thank you from our family to yours" loading="lazy" />
+          </div>
+          <p class="cart--closing--text font--accent">Thank you from our family to yours.</p>
+        </div>
+      {% endif %}
     </div>
   </form>
 
   <div class="cart--no-items font--paragraph">{{ empty_html_t }}</div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Cart reservation countdown timer
+    var countdownEl = document.querySelector('.cart--timer--countdown');
+    if (!countdownEl) return;
+
+    var totalSeconds = (parseInt(countdownEl.getAttribute('data-minutes'), 10) || 10) * 60;
+
+    var timerInterval = setInterval(function() {
+      totalSeconds--;
+      if (totalSeconds <= 0) {
+        clearInterval(timerInterval);
+        totalSeconds = 0;
+      }
+      var m = Math.floor(totalSeconds / 60);
+      var s = totalSeconds % 60;
+      countdownEl.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    }, 1000);
+  });
+</script>
