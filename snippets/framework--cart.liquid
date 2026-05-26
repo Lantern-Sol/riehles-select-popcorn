@@ -352,16 +352,16 @@
         </div>
       </div>
 
-      {% if has_items and template == 'cart' %}
-        <div class="cart--closing">
-          <div class="cart--closing--image">
-            {%- comment -%} Replace placeholder with provided asset when available {%- endcomment -%}
-            <img src="{{ 'cart-thank-you.jpg' | asset_url }}" alt="Thank you from our family to yours" loading="lazy" />
-          </div>
-          <p class="cart--closing--text font--accent">Thank you from our family to yours.</p>
-        </div>
-      {% endif %}
     </div>
+
+    {% if has_items and is_drawer != true %}
+      <div class="cart--closing">
+        <div class="cart--closing--image">
+          <img src="{{ 'cart-thank-you.webp' | asset_url }}" alt="Thank you from our family to yours" loading="lazy" />
+        </div>
+        <p class="cart--closing--text font--accent">Thank you from our family to yours.</p>
+      </div>
+    {% endif %}
   </form>
 
   <div class="cart--no-items font--paragraph">{{ empty_html_t }}</div>

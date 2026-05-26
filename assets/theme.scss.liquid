@@ -11587,6 +11587,7 @@ html.no-cssgrid .product-page--main-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 32px;
 }
 
 .cart--root[data-view='mobile'] .cart--footer {
@@ -11599,8 +11600,7 @@ html.no-cssgrid .product-page--main-content {
   -ms-flex-positive: 1;
   flex-grow: 1;
   max-width: 400px;
-  -ms-flex-item-align: end;
-  align-self: flex-end;
+  align-self: flex-start;
 }
 
 .cart--root[data-view='mobile'] .cart--notes {
@@ -11716,22 +11716,27 @@ html.no-cssgrid .product-page--main-content {
   font-variant-numeric: tabular-nums;
 }
 
-/* Cart closing image */
+/* Cart closing image — full width below footer */
 .cart--closing {
   text-align: center;
   padding: 24px 0 8px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
   margin-top: 16px;
+  width: 100%;
+}
+
+.cart--closing--image {
+  width: 100%;
 }
 
 .cart--closing--image img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
-  border-radius: 4px;
+  display: block;
+  border-radius: 0;
 }
 
 .cart--closing--text {
-  margin-top: 8px;
+  margin-top: 12px;
   font-size: 14px;
   color: #555;
 }
