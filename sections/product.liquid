@@ -32,7 +32,6 @@
   {% endfor %}
 {% endcapture %}
 
-
 {% comment %} View {% endcomment %}
 <div
   class="product-page--root"
@@ -45,17 +44,16 @@
   data-size-chart-enabled="{{ section.settings.product-size-chart-enabled }}"
   data-size-chart-option="{{ section.settings.product-size-chart-option }}"
   data-cart-form-position="{{ section.settings.cart-form-position }}"
-  {% if section.settings.low-in-stock-amount > 0 %}
+  {% if section.settings['low-in-stock-amount'] > 0 %}
     data-product-low-in-stock-amount="{{ section.settings.low-in-stock-amount }}"
   {% endif %}
   data-product-size-chart-enabled="{{ section.settings.product-size-chart-enabled }}"
   data-js-class="ProductPage"
 >
-
   <header>
     <div class="row show--medium-large">
       <div class="columns">
-        {% if section.settings.product-breadcrumbs-show %}
+        {% if section.settings['product-breadcrumbs-show'] %}
           {% include 'snippet-breadcrumbs' %}
         {% endif %}
       </div>
@@ -63,11 +61,10 @@
   </header>
 
   <article class="row" itemscope itemtype="http://schema.org/Product">
-    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}" />
-    <meta itemprop="image" content="https:{{ product.featured_image.src | product_img_url: '1200x' }}" />
+    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+    <meta itemprop="image" content="https:{{ product.featured_image.src | product_img_url: '1200x' }}">
 
     <div class="product-page--main-content">
-
       {% if product.images.size > 0 %}
         <div class="product-page--images">
           <div class="product-page--images-container">
@@ -80,61 +77,47 @@
               </button>
             {% endif %}
             <div class="modal--root" data-js-class="FrameworkModal">
-
               {% for image in product.images %}
                 {% assign active_image = false %}
                 {% if featured_image == image %}
                   {% assign active_image = true %}
                 {% endif %}
 
-                {% if section.settings.product-modal-enabled %}
+                {% if section.settings['product-modal-enabled'] %}
                   <div class="modal--link">
                 {% endif %}
+                <div
+                  class="product-page--image"
+                  data-active="{{ active_image }}"
+                  data-id="{{ image.id }}"
+                >
+                  {% include 'framework--image', image: image, preload: true, eager: active_image %}
+                </div>
+
+                {% if section.settings['product-zoom-enabled'] %}
                   <div
-                    class="product-page--image"
-                    data-active="{{ active_image }}"
+                    class="product-page--zoom-image"
                     data-id="{{ image.id }}"
+                    data-aspect-ratio="{{ image.aspect_ratio }}"
                   >
-                    {%
-                      include 'framework--image',
-                      image: image,
-                      preload: true,
-                      eager: active_image
-                    %}
+                    {% include 'framework--image', image: image, preload: true %}
                   </div>
+                {% endif %}
 
-                  {% if section.settings.product-zoom-enabled %}
-                    <div
-                      class="product-page--zoom-image"
-                      data-id="{{ image.id }}"
-                      data-aspect-ratio="{{ image.aspect_ratio }}"
-                    >
-                      {%
-                        include "framework--image",
-                        image: image,
-                        preload: true
-                      %}
-                    </div>
-                  {% endif %}
-
-                {% if section.settings.product-modal-enabled %}
+                {% if section.settings['product-modal-enabled'] %}
                   </div>
                 {% endif %}
               {% endfor %}
 
-              {% if section.settings.product-modal-enabled %}
+              {% if section.settings['product-modal-enabled'] %}
                 <div class="product-page--modal-images">
                   {% for image in product.images %}
                     <div class="modal--content">
-                      {%
-                        include "framework--image",
-                        image: image
-                      %}
+                      {% include 'framework--image', image: image %}
                     </div>
                   {% endfor %}
                 </div>
               {% endif %}
-
             </div>
           </div>
 
@@ -149,11 +132,12 @@
       {% endif %}
 
       <div class="product-page--details">
-
         <div class="product-page--title-n-vendor">
           <h1 class="product-page--title font--section-heading" itemprop="name">{{ product.title }}</h1>
-          {% if settings.brand-show %}
-            <div itemprop="brand"><a class="font--light-accent" href="{{ product.vendor | url_for_vendor }}">{{ product.vendor }}</a></div>
+          {% if settings['brand-show'] %}
+            <div itemprop="brand">
+              <a class="font--light-accent" href="{{ product.vendor | url_for_vendor }}">{{ product.vendor }}</a>
+            </div>
           {% endif %}
         </div>
 
@@ -164,15 +148,14 @@
         </div>
 
         <div class="product-page--cart-form-block">
-
           <div class="font--accent">
             <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-              <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+              <meta itemprop="priceCurrency" content="{{ shop.currency }}">
 
               {% if product.available %}
-                <link itemprop="availability" href="http://schema.org/InStock" />
+                <link itemprop="availability" href="http://schema.org/InStock">
               {% else %}
-                <link itemprop="availability" href="http://schema.org/OutOfStock" />
+                <link itemprop="availability" href="http://schema.org/OutOfStock">
               {% endif %}
 
               {% assign price_meta = product.selected_or_first_available_variant.price | divided_by: 100.00 %}
@@ -180,7 +163,18 @@
 
               <p class="price--container">
                 {% assign variant = product.selected_or_first_available_variant %}
-                <span class="actual-price font--accent money" data-unit-price="{{ variant.price }}">{{ variant.price | money }}</span>&nbsp;<span class="compare-price" {% if variant.compare_at_price > variant.price %}data-unit-compare-price="{{ variant.compare_at_price }}"{% endif %}>{% if variant.price < variant.compare_at_price %}<span class="money font--light-accent">{{ variant.compare_at_price | money }}</span>{% endif %}</span>
+                <span class="actual-price font--accent money" data-unit-price="{{ variant.price }}">
+                  {{- variant.price | money -}}</span
+                >&nbsp;<span
+                  class="compare-price"
+                  {% if variant.compare_at_price > variant.price %}
+                    data-unit-compare-price="{{ variant.compare_at_price }}"
+                  {% endif %}
+                >
+                  {%- if variant.price < variant.compare_at_price -%}
+                    <span class="money font--light-accent">{{ variant.compare_at_price | money }}</span>
+                  {%- endif -%}
+                </span>
               </p>
             </div>
           </div>
@@ -188,18 +182,17 @@
           {% comment %}<form class="cart-form" action="/cart/add" method="post" enctype="multipart/form-data">{% endcomment %}
           <div class="product-page--cart-form">
             {% form 'product', product %}
+              {% comment %}
+                <!-- Adding line items - https://docs.shopify.com/manual/configuration/store-customization/page-specific/product-page/get-customization-information-for-products -->
+                <div>
+                   <label for="line-item-1">Line Item 1</label>
+                   <input type="text" id="line-item-1" name="properties[line-item-1]">
+                 </div>
 
-             {% comment %}
-             <!-- Adding line items - https://docs.shopify.com/manual/configuration/store-customization/page-specific/product-page/get-customization-information-for-products -->
-             <div>
-                <label for="line-item-1">Line Item 1</label>
-                <input type="text" id="line-item-1" name="properties[line-item-1]">
-              </div>
-
-              <div>
-                <label for="line-item-2">Line Item 2</label>
-                <input type="text" id="line-item-2" name="properties[line-item-2]">
-              </div>
+                 <div>
+                   <label for="line-item-2">Line Item 2</label>
+                   <input type="text" id="line-item-2" name="properties[line-item-2]">
+                 </div>
               {% endcomment %}
 
               <div class="font--accent variants {% unless product.variants.size > 1 %}hidden{% endunless %}">
@@ -207,11 +200,16 @@
                   {% for variant in product.variants %}
                     <option
                       data-sku="{{ variant.sku }}"
-                      {% if variant.inventory_quantity <= 0 and variant.available == false %}DISABLED {% endif %}
-                      {% if variant == product.selected_or_first_available_variant %}selected="selected" {% endif %} value="{{ variant.id }}"
-                      {% if section.settings.low-in-stock-amount > 0 and
-                        variant.inventory_management == "shopify" and
-                        variant.inventory_policy == "deny"
+                      {% if variant.inventory_quantity <= 0 and variant.available == false %}
+                        DISABLED
+                      {% endif %}
+                      {% if variant == product.selected_or_first_available_variant %}
+                        selected="selected"
+                      {% endif %}
+                      value="{{ variant.id }}"
+                      {% if section.settings['low-in-stock-amount'] > 0
+                        and variant.inventory_management == 'shopify'
+                        and variant.inventory_policy == 'deny'
                       %}
                         data-inventory-quantity="{{ variant.inventory_quantity }}"
                       {% endif %}
@@ -249,40 +247,57 @@
           </div>
 
           {% include 'snippet-product-unavailable' %}
-
         </div>
-
       </div>
-
     </div>
   </article>
+</div>
+<!-- .product-page -->
 
-</div> <!-- .product-page -->
-
-<div class="sticky-atc-bar" id="sticky-atc-bar">
+<div class="sticky-atc-bar" id="sticky-atc-bar" role="region" aria-label="Quick add to cart">
   <div class="sticky-atc-bar--inner">
     <div class="sticky-atc-bar--product-info">
-      <img class="sticky-atc-bar--img" src="{{ product.featured_image | img_url: '60x60', crop: 'center' }}" alt="{{ product.title | escape }}" width="50" height="50" />
+      <img
+        class="sticky-atc-bar--img"
+        src="{{ product.featured_image | img_url: '60x60', crop: 'center' }}"
+        alt="{{ product.title | escape }}"
+        width="50"
+        height="50"
+      >
       <span class="sticky-atc-bar--title">{{ product.title }}</span>
     </div>
     <div class="sticky-atc-bar--actions">
       <div class="sticky-atc-bar--qty">
         <button type="button" class="qty-btn sticky-qty-minus" aria-label="Decrease quantity">−</button>
-        <input type="number" class="sticky-qty-input" min="1" value="1" aria-label="Quantity" />
+        <input type="number" class="sticky-qty-input" min="1" value="1" aria-label="Quantity">
         <button type="button" class="qty-btn sticky-qty-plus" aria-label="Increase quantity">+</button>
       </div>
-      <button type="button" class="sticky-atc-bar--add-btn font--button" id="sticky-add-btn">{{ 'products.add_to_cart' | t }} - <span class="actual-price-sticky money"></span></button>
+      <button type="button" class="sticky-atc-bar--add-btn font--button" id="sticky-add-btn">
+        {{ 'products.add_to_cart' | t }} - <span class="actual-price-sticky money"></span>
+      </button>
     </div>
-    <ul class="sticky-atc-bar--usps">
-      <li>High in antioxidants and fiber</li>
-      <li>Non-GMO</li>
-      <li>Hull-less popcorn</li>
-      <li>From our family farm</li>
+    <ul class="sticky-atc-bar--usps" role="list" aria-label="Product benefits">
+      <li role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 7L13 10L11 13H8L6 10L8 7H11Z"/><path d="M16 4L18 7L16 10H13L11 7L13 4H16Z"/><path d="M16 16L18 19"/><path d="M5 4L8 7"/><path d="M8 13L6 15"/><path d="M13 16L11 18"/><path d="M6 10H4"/><path d="M18 13H21"/><path d="M16 10L18 13L16 16H13L11 13L13 10H16Z"/><circle cx="9" cy="20" r="1" fill="currentColor"/><circle cx="4" cy="17" r="1" fill="currentColor"/><circle cx="21" cy="7" r="1" fill="currentColor"/></svg>
+        <span>High in antioxidants and fiber</span>
+      </li>
+      <li role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8.5,12.5 L10.151,14.5638 C10.3372,14.7965 10.6843,14.8157 10.895,14.605 L15.5,10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>Non-GMO</span>
+      </li>
+      <li role="listitem">
+        <svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true" focusable="false"><rect x="237.459" y="149.112" width="37.184" height="31.145"/><rect x="237.459" y="217.506" width="37.184" height="31.145"/><rect x="237.459" y="285.9" width="37.184" height="31.145"/><path d="M405.9,250.761l-0.922-19.813l-19.027,5.597c-11.474,3.375-22.41,7.848-32.723,13.365c-1.997-28.572-4.967-57.816-8.876-87.272c-0.516-3.885-1.043-7.769-1.593-11.653c-0.013-0.097-0.029-0.19-0.043-0.287v-1.582h-0.236C333.059,84.631,312.429,38.497,279.429,8.14C267.63-2.715,244.472-2.712,232.677,8.139c-33.322,30.654-54.036,77.379-63.329,142.845c-0.55,3.882-1.077,7.767-1.593,11.654c-3.914,29.484-6.884,58.746-8.88,87.325c-10.342-5.543-21.314-10.033-32.826-13.419l-19.028-5.597l-0.922,19.813c-0.1,2.118-2.23,52.536,13.681,109.59c21.632,77.568,66.414,129.708,129.502,150.782c1.74,0.582,3.545,0.867,5.344,0.867c0.458,0,0.916-0.021,1.371-0.058c0.458,0.037,0.917,0.058,1.377,0.058c1.797,0,3.602-0.284,5.341-0.866c63.09-21.075,107.873-73.216,129.504-150.783C408.13,303.297,405.999,252.879,405.9,250.761z M149.994,352.748c-8.636-30.659-11.549-59.742-12.476-78.667c9.182,4.301,17.799,9.561,25.767,15.741c15.606,12.101,28.043,27.137,37.954,43.454c1.802,2.967,3.52,5.976,5.16,9.018c1.639,3.042,3.199,6.116,4.682,9.213c12.611,26.321,19.748,54.267,23.784,77.733c2.987,17.362,4.389,32.926,5.039,44.467C196.871,452.537,166.671,411.948,149.994,352.748z M271.261,341.445c-0.727,1.573-1.43,3.151-2.122,4.729c-0.19,0.434-0.378,0.868-0.566,1.303c-0.569,1.315-1.126,2.631-1.671,3.948c-0.122,0.296-0.249,0.592-0.371,0.889c-0.646,1.576-1.275,3.152-1.888,4.729c-0.149,0.383-0.295,0.766-0.442,1.149c-0.494,1.283-0.977,2.566-1.45,3.849c-0.142,0.386-0.287,0.772-0.428,1.159c-0.576,1.58-1.138,3.158-1.683,4.735c-0.088,0.256-0.173,0.512-0.262,0.768c-0.466,1.359-0.92,2.715-1.364,4.07c-0.136,0.416-0.273,0.832-0.407,1.247c-0.509,1.575-1.009,3.147-1.489,4.714c-0.001,0.002-0.001,0.004-0.002,0.005c-0.381,1.244-0.755,2.485-1.118,3.724c-0.356-1.211-0.721-2.426-1.093-3.644c-0.009-0.031-0.019-0.062-0.029-0.093c-0.473-1.545-0.967-3.096-1.468-4.648c-0.14-0.433-0.281-0.867-0.424-1.301c-0.432-1.317-0.874-2.637-1.326-3.958c-0.099-0.289-0.194-0.577-0.295-0.866c-0.542-1.567-1.1-3.136-1.672-4.706c-0.142-0.389-0.288-0.778-0.431-1.167c-0.47-1.276-0.951-2.552-1.442-3.829c-0.15-0.388-0.296-0.776-0.447-1.164c-0.615-1.578-1.243-3.155-1.888-4.731c-0.115-0.28-0.234-0.56-0.35-0.839c-0.552-1.336-1.118-2.671-1.694-4.005c-0.182-0.422-0.364-0.843-0.549-1.264c-0.697-1.591-1.405-3.18-2.137-4.765c-0.004-0.008-0.008-0.017-0.011-0.025c-0.726-1.571-1.474-3.137-2.234-4.702c-0.2-0.412-0.403-0.823-0.605-1.234c-0.664-1.35-1.341-2.695-2.033-4.037c-0.127-0.247-0.25-0.494-0.379-0.741c-0.809-1.556-1.638-3.106-2.484-4.651c-0.198-0.362-0.401-0.723-0.601-1.085c-0.702-1.268-1.417-2.53-2.145-3.787c-0.202-0.35-0.402-0.701-0.606-1.051c-0.896-1.53-1.81-3.052-2.745-4.566c-0.156-0.253-0.318-0.503-0.475-0.756c-0.804-1.289-1.623-2.572-2.455-3.847c-0.249-0.381-0.497-0.762-0.749-1.142c-0.997-1.505-2.006-3.003-3.044-4.488c-0.001-0.002-0.003-0.003-0.004-0.005c-1.028-1.469-2.083-2.923-3.152-4.371c-0.273-0.37-0.548-0.737-0.824-1.105c-0.947-1.262-1.907-2.517-2.887-3.759c-0.159-0.201-0.313-0.405-0.472-0.605c-1.125-1.418-2.277-2.821-3.446-4.211c-0.271-0.322-0.547-0.642-0.82-0.962c-0.972-1.14-1.958-2.269-2.96-3.39c-0.27-0.302-0.538-0.606-0.81-0.907c-1.225-1.351-2.47-2.688-3.74-4.007c-0.22-0.228-0.446-0.453-0.668-0.681c-1.084-1.114-2.185-2.215-3.302-3.305c-0.337-0.329-0.674-0.658-1.013-0.984c-1.338-1.284-2.691-2.557-4.077-3.805c-0.035-0.032-0.073-0.063-0.109-0.096c-1.025-0.922-2.061-1.834-3.112-2.736c0.399-7.209,0.877-14.482,1.408-21.791h25.835v-31.145h-23.212c1.185-12.335,2.541-24.761,4.079-37.247h19.133v-31.145H201.12c2.045-13.03,4.585-25.143,7.623-36.379h34.095V81.587h-23.444c8.823-20.636,20.076-37.236,33.889-50.083c1.36-0.487,4.179-0.487,5.54,0c13.812,12.846,25.064,29.446,33.886,50.086h-26.281v31.145h36.934c3.039,11.235,5.577,23.349,7.623,36.379h-12.91v31.145h17.131c1.536,12.484,2.893,24.91,4.079,37.247h-21.21v31.145h23.832c0.528,7.279,1.006,14.524,1.404,21.706c-1.038,0.888-2.061,1.789-3.073,2.697c-0.053,0.048-0.108,0.093-0.16,0.14c-1.378,1.24-2.724,2.503-4.054,3.778c-0.358,0.343-0.712,0.688-1.066,1.034c-1.086,1.058-2.156,2.127-3.21,3.208c-0.252,0.259-0.51,0.514-0.76,0.773c-1.254,1.302-2.483,2.619-3.693,3.951c-0.302,0.332-0.598,0.669-0.897,1.003c-0.962,1.076-1.911,2.16-2.846,3.255c-0.306,0.358-0.615,0.715-0.919,1.076c-1.148,1.365-2.279,2.741-3.385,4.132c-0.201,0.253-0.397,0.511-0.596,0.764c-0.931,1.182-1.846,2.374-2.748,3.574c-0.306,0.409-0.612,0.817-0.917,1.227c-1.003,1.357-1.992,2.721-2.959,4.098c-0.062,0.088-0.127,0.174-0.188,0.264c-1.016,1.453-2.007,2.92-2.983,4.394c-0.28,0.424-0.557,0.848-0.835,1.273c-0.788,1.207-1.563,2.421-2.327,3.641c-0.195,0.312-0.396,0.624-0.59,0.937c-0.918,1.485-1.815,2.979-2.695,4.479c-0.229,0.391-0.454,0.785-0.681,1.177c-0.696,1.202-1.38,2.409-2.052,3.62c-0.225,0.406-0.454,0.812-0.676,1.219c-0.833,1.521-1.65,3.046-2.447,4.578c-0.146,0.282-0.288,0.566-0.434,0.848c-0.671,1.302-1.328,2.607-1.974,3.915c-0.217,0.44-0.434,0.879-0.648,1.321c-0.731,1.504-1.45,3.011-2.15,4.521C271.321,341.317,271.291,341.381,271.261,341.445z M362.218,351.984c-16.625,59.616-46.896,100.461-90.126,121.723c0.649-11.527,2.05-27.097,5.038-44.468c7.604-44.21,26.212-104.297,71.674-139.488c7.947-6.152,16.542-11.394,25.694-15.679C373.589,292.794,370.722,321.494,362.218,351.984z"/></svg>
+        <span>Hull-less popcorn</span>
+      </li>
+      <li role="listitem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 12V21M9 12L10.8462 7L15 5L19.1538 7L21 12V21H9M9 12V8M9 21H3V6C3 4.34315 4.34315 3 6 3C7.65685 3 9 4.34315 9 6V8M9 8H3M13 15H17V21H13V15ZM14.5 10V11H15.5V10H14.5Z"/></svg>
+        <span>From our family farm</span>
+      </li>
     </ul>
   </div>
 </div>
 
-{% if section.settings.product-share-this-show %}
+{% if section.settings['product-share-this-show'] %}
   <section class="row social-share">
     <div class="columns">
       {% include 'snippet-product-share' with 'product-template' %}
@@ -471,77 +486,77 @@
 </script>
 
 {% if product.images.size > 1 %}
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    jQuery(function($) {
-      var $root = $('.product-page--root');
-      var $images = $root.find('.product-page--image');
-      var $thumbs = $root.find('.product-page--thumb');
-      var $zoomImages = $root.find('.product-page--zoom-image');
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      jQuery(function ($) {
+        var $root = $('.product-page--root');
+        var $images = $root.find('.product-page--image');
+        var $thumbs = $root.find('.product-page--thumb');
+        var $zoomImages = $root.find('.product-page--zoom-image');
 
-      function switchImage(direction) {
-        var $active = $images.filter('[data-active="true"]');
-        var currentIndex = $images.index($active);
-        var nextIndex;
+        function switchImage(direction) {
+          var $active = $images.filter('[data-active="true"]');
+          var currentIndex = $images.index($active);
+          var nextIndex;
 
-        if (direction === 'next') {
-          nextIndex = (currentIndex + 1) % $images.length;
-        } else {
-          nextIndex = (currentIndex - 1 + $images.length) % $images.length;
+          if (direction === 'next') {
+            nextIndex = (currentIndex + 1) % $images.length;
+          } else {
+            nextIndex = (currentIndex - 1 + $images.length) % $images.length;
+          }
+
+          var nextId = $images.eq(nextIndex).attr('data-id');
+
+          // Hide all zoom images immediately
+          $zoomImages.css('display', 'none');
+
+          $images.attr('data-active', 'false');
+          $images.eq(nextIndex).attr('data-active', 'true');
+
+          $zoomImages.attr('data-active', 'false');
+          $zoomImages.filter('[data-id="' + nextId + '"]').attr('data-active', 'true');
+
+          $thumbs.attr('data-active', 'false');
+          $thumbs.filter('[data-id="' + nextId + '"]').attr('data-active', 'true');
+
+          // Re-initialize zoom for the new active image
+          if (theme.partials.ProductPage && theme.partials.ProductPage.imageZoom) {
+            theme.partials.ProductPage.imageZoom();
+          }
         }
 
-        var nextId = $images.eq(nextIndex).attr('data-id');
+        $root.on('click', '.product-page--arrow-prev', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          switchImage('prev');
+        });
 
-        // Hide all zoom images immediately
-        $zoomImages.css('display', 'none');
-
-        $images.attr('data-active', 'false');
-        $images.eq(nextIndex).attr('data-active', 'true');
-
-        $zoomImages.attr('data-active', 'false');
-        $zoomImages.filter('[data-id="' + nextId + '"]').attr('data-active', 'true');
-
-        $thumbs.attr('data-active', 'false');
-        $thumbs.filter('[data-id="' + nextId + '"]').attr('data-active', 'true');
-
-        // Re-initialize zoom for the new active image
-        if (theme.partials.ProductPage && theme.partials.ProductPage.imageZoom) {
-          theme.partials.ProductPage.imageZoom();
-        }
-      }
-
-      $root.on('click', '.product-page--arrow-prev', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        switchImage('prev');
-      });
-
-      $root.on('click', '.product-page--arrow-next', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        switchImage('next');
+        $root.on('click', '.product-page--arrow-next', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          switchImage('next');
+        });
       });
     });
-  });
-</script>
+  </script>
 {% endif %}
 
 <div class="product-lightbox" id="product-lightbox">
   <div class="product-lightbox--overlay"></div>
   <div class="product-lightbox--content">
     <button type="button" class="product-lightbox--close" aria-label="Close">&times;</button>
-    <img src="" alt="" />
+    <img src="" alt="">
   </div>
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    jQuery(function($) {
+  document.addEventListener('DOMContentLoaded', function () {
+    jQuery(function ($) {
       var $lightbox = $('#product-lightbox');
       var $img = $lightbox.find('img');
       var imageExts = /\.(jpg|jpeg|png|gif|webp)(\?|$)/i;
 
-      $('.product-page--description .rte-content').on('click', 'a', function(e) {
+      $('.product-page--description .rte-content').on('click', 'a', function (e) {
         var href = $(this).attr('href');
         if (href && imageExts.test(href)) {
           e.preventDefault();
@@ -550,12 +565,12 @@
         }
       });
 
-      $lightbox.on('click', '.product-lightbox--overlay, .product-lightbox--close', function() {
+      $lightbox.on('click', '.product-lightbox--overlay, .product-lightbox--close', function () {
         $lightbox.removeClass('active');
         $img.attr('src', '');
       });
 
-      $(document).on('keydown', function(e) {
+      $(document).on('keydown', function (e) {
         if (e.key === 'Escape' && $lightbox.hasClass('active')) {
           $lightbox.removeClass('active');
           $img.attr('src', '');
@@ -565,7 +580,7 @@
   });
 </script>
 
-{% if section.settings.product-size-chart-enabled %}
+{% if section.settings['product-size-chart-enabled'] %}
   {% include 'snippet-size-chart' %}
 {% endif %}
 
@@ -629,8 +644,8 @@
       "label": "Cart form",
       "type": "radio",
       "options": [
-        { "value": "left", "label": "Left"},
-        { "value": "right", "label": "Right"}
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
       ]
     },
     {
