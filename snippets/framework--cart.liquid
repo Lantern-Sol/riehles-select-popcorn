@@ -368,22 +368,24 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Cart reservation countdown timer
-    var countdownEl = document.querySelector('.cart--timer--countdown');
-    if (!countdownEl) return;
+  (function() {
+    if (window.__cartTimerInit) return;
+    window.__cartTimerInit = true;
 
-    var totalSeconds = (parseInt(countdownEl.getAttribute('data-minutes'), 10) || 10) * 60;
+    document.addEventListener('DOMContentLoaded', function() {
+      var totalSeconds = 10 * 60;
 
-    var timerInterval = setInterval(function() {
-      totalSeconds--;
-      if (totalSeconds <= 0) {
-        clearInterval(timerInterval);
-        totalSeconds = 0;
-      }
-      var m = Math.floor(totalSeconds / 60);
-      var s = totalSeconds % 60;
-      countdownEl.textContent = m + ':' + (s < 10 ? '0' : '') + s;
-    }, 1000);
-  });
+      setInterval(function() {
+        totalSeconds--;
+        if (totalSeconds <= 0) totalSeconds = 0;
+        var m = Math.floor(totalSeconds / 60);
+        var s = totalSeconds % 60;
+        var text = m + ':' + (s < 10 ? '0' : '') + s;
+        var els = document.querySelectorAll('.cart--timer--countdown');
+        for (var i = 0; i < els.length; i++) {
+          els[i].textContent = text;
+        }
+      }, 1000);
+    });
+  })();
 </script>
