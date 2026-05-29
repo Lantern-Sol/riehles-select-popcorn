@@ -340,19 +340,85 @@
         </div>
 
         <div class="cart--nav">
-          <div class="cart--continue-shopping font--block-link">
-            <a href="{{ shop.url }}/collections/all">
-              {{ continue_t }}
-            </a>
-          </div>
-
+          {% if has_items %}
+            <div class="cart--timer" aria-live="polite" aria-label="Cart reservation timer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true" focusable="false"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+              <span class="cart--timer--text">Your cart is reserved for <strong class="cart--timer--countdown" data-minutes="10">10:00</strong></span>
+            </div>
+          {% endif %}
           <button class="cart--checkout-button font--button" type="submit" name="checkout">
             {{ checkout_t }}
           </button>
         </div>
       </div>
+
     </div>
+
+    {% if has_items and is_drawer != true %}
+      <div class="cart--closing">
+        <div class="cart--closing--image">
+          <img src="{{ 'cart-thank-you.webp' | asset_url }}" alt="Thank you from our family to yours" loading="lazy" />
+        </div>
+        <p class="cart--closing--text font--accent">Thank you from our family to yours.</p>
+      </div>
+    {% endif %}
   </form>
 
   <div class="cart--no-items font--paragraph">{{ empty_html_t }}</div>
 </div>
+
+<script>
+  (function() {
+    function initCartTimer() {
+      var els = document.querySelectorAll('.cart--timer--countdown');
+      if (!els.length) {
+        sessionStorage.removeItem('cart_timer_expiry');
+        return;
+      }
+
+      if (window.cartTimerInterval) {
+        clearInterval(window.cartTimerInterval);
+      }
+
+      var minutes = parseInt(els[0].getAttribute('data-minutes'), 10) || 10;
+      var now = Math.floor(Date.now() / 1000);
+      var expiry = sessionStorage.getItem('cart_timer_expiry');
+
+      if (!expiry) {
+        expiry = now + (minutes * 60);
+        sessionStorage.setItem('cart_timer_expiry', expiry);
+      } else {
+        expiry = parseInt(expiry, 10);
+      }
+
+      var totalSeconds = expiry - now;
+
+      function updateTimer() {
+        if (totalSeconds <= 0) {
+          clearInterval(window.cartTimerInterval);
+          totalSeconds = 0;
+          sessionStorage.removeItem('cart_timer_expiry');
+        }
+        var m = Math.floor(totalSeconds / 60);
+        var s = totalSeconds % 60;
+        var text = m + ':' + (s < 10 ? '0' : '') + s;
+        for (var i = 0; i < els.length; i++) {
+          els[i].textContent = text;
+        }
+      }
+
+      updateTimer();
+
+      window.cartTimerInterval = setInterval(function() {
+        totalSeconds--;
+        updateTimer();
+      }, 1000);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCartTimer);
+    } else {
+      initCartTimer();
+    }
+  })();
+</script>
