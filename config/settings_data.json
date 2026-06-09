@@ -103,11 +103,11 @@
           "header-logo-center": true,
           "logo": "shopify://shop_images/logoSelectPopcorn.png",
           "logo-height": 100,
-          "announcement--background-color": "none",
+          "announcement--background-color": "dark",
           "announcement--alternative-color": true,
           "header--promo-bar--show-on": "all",
-          "header--promo-bar--text": "",
-          "header--promo-bar--link": "shopify://collections/microwave"
+          "header--promo-bar--text": "Father's Day Savings! Save $5.00 on shipping when you order $35 or more.  CODE: FathersDay2026",
+          "header--promo-bar--link": "shopify://collections/all"
         }
       },
       "footer": {
