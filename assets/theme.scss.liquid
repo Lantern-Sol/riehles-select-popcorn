@@ -12926,3 +12926,47 @@ body.template--customers--register input[type='password'] {
     padding-top: 32px;
   }
 }
+
+/* Appstle Subscription Widget — layout fix
+   Stack: Quantity → Appstle widget → ATC button
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.template-product article .quanity-cart-row {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.template-product article .quanity-cart-row .quantity {
+  max-width: 160px;
+  margin-bottom: 12px;
+}
+
+.template-product article .quanity-cart-row .add-to-cart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.template-product article .quanity-cart-row .add-to-cart .appstle_sub_widget {
+  order: -1;
+}
+
+.template-product article .quanity-cart-row .add-to-cart button.add {
+  order: 10;
+}
+
+.template-product .appstle_subscription_wrapper,
+.template-product .appstle_subscribe_option_grid {
+  overflow: visible;
+}
+
+.template-product .appstle_custom_select {
+  max-width: none;
+  width: 100%;
+}
+
+.template-product .appstle_custom_select .appstle_select {
+  width: 100%;
+  max-width: none;
+  padding: 0 10px !important;
+  font-size: 14px;
+}
