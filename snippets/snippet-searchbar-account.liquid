@@ -11,7 +11,7 @@
     </a>
   {% endif %}
 
-  {% if section.settings.header-account-show and shop.customer_accounts_enabled %}
+  {% if section.settings.header-account-show %}
     <a class="account-open" href="#">{{ 'layout.header.account_toggle_link' | t }}
       {% include 'snippet-symbol' with 'account' %}
     </a>
@@ -36,11 +36,7 @@
     {% assign signup_link = 'layout.header.account_signup_link' | t %}
     {% assign signup_link = signup_link | customer_register_link %}
 
-    {% if shop.customer_accounts_optional %}
-      {{ 'layout.header.account_signed_out_html' | t: login_link: login_link, signup_link: signup_link  }}
-    {% else %}
-      {{ login_link }}
-    {% endif %}
+    {{ 'layout.header.account_signed_out_html' | t: login_link: login_link, signup_link: signup_link  }}
   {% endif %}
   <a href="#" aria-hidden="true" class="account-close cross">
     {% include 'snippet-symbol' with 'cross' %}
