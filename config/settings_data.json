@@ -106,7 +106,7 @@
           "announcement--background-color": "dark",
           "announcement--alternative-color": true,
           "header--promo-bar--show-on": "all",
-          "header--promo-bar--text": "RED, WHITE AND BLUE SALE!  SAVE 10% ON PRODUCT ORDERS WITH COUPON CODE: INDEPENDENCE4",
+          "header--promo-bar--text": "RED, WHITE AND BLUE SALE!  SAVE 10% ON PRODUCT ORDERS WITH COUPON CODE:INDEPENDENCE4",
           "header--promo-bar--link": "shopify://collections/all"
         }
       },
